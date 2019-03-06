@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>
+            {% if title %}
+                {{ title }}
+            {% else %}
+                Movie Catalog
+            {% endif %}
+        </title>
+    </head>
+    <body>
+        <div class="d-flex toggled" id="wrapper">
+            <div id="sidebar-wrapper" class="bg-custom">
+                <h2 class="sidebar-items-padding">Genres</h2>
+                <ul>
+                    {% for genre in genres %}
+                        <li>
+                            <a class="sidebar-items-padding" href="#">{{ genre }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div id="page-content-wrapper">
+                <header id="top-bar-wrapper">
+                    <nav class="navbar navbar-dark navbar-expand-lg bg-custom">
+                        <div class="container">
+                            {% if not title %}
+                                <a class="btn btn-light" title="Show all Movie Genres" role="button" id="genres-toggler" href="#">Genres &raquo;</a>
+                            {% endif %}
+                            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarToggle">
+                                <a class="navbar-brand ml-auto d-none d-lg-block" href="#">Movie Catalog</a>
+                                <ul class="navbar-nav ml-auto mt-2 mt-lg-0 text-center">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">New Movie</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Log In</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Log Out</a>
+                                    </li>
+                                </ul>     
+                            </div>
+                        </div>
+                    </nav>
+                </header>
+                <main role="main" class="container mt-4">
+                    <h1>Testing HEADING 1</h1>
+                    <h2>Testing HEADING 2</h2>
+                    <h3>Testing HEADING 3</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, id. Ut at, error quaerat distinctio quidem enim repudiandae sequi facere quisquam iste itaque ipsum veniam harum sint sit expedita perferendis.</p>
+                    <hr>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates ad repellendus amet incidunt optio saepe nihil doloribus ipsam quis aperiam? Accusantium id excepturi voluptatum obcaecati nulla laudantium quos asperiores. Vel.</p>
+                </main>
+            </div>
+        </div> 
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="{{ url_for('static', filename='main.js') }}"></script>
+    </body>
+</html>
