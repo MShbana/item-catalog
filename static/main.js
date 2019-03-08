@@ -4,7 +4,8 @@ $(document).ready(function() {
     var $wrapper = $("#wrapper")
     var $genresToggler = $("#genres-toggler")
 
-    $genresToggler.click(function(e) {
+
+    $genresToggler.on("click", function(e) {
         e.preventDefault();
         $(this).blur();
 
@@ -17,8 +18,9 @@ $(document).ready(function() {
         }
     });
 
+
     var $cachedWindowWidth = $(window).width();
-    $(window).resize(function() {
+    $(window).on("resize", function() {
         // Check if window width has actually changed
         // and that it's not just androic/ios broswer
         // triggering a resize event on scroll.
@@ -45,4 +47,9 @@ $(document).ready(function() {
         $(genresToggle).html("Genres &raquo;");
         $(genresToggle).attr("title", "Show all Movie Genres");
     };
+
+
+    $(".navbar-nav > li > a").on("click", function(){
+        $(".navbar-collapse").collapse("hide");
+    });
 });
