@@ -16,7 +16,7 @@
     <body>
         <div class="d-flex toggled" id="wrapper">
             {% if not title %}
-                <div id="sidebar-wrapper" class="bg-custom">
+                <aside id="sidebar-wrapper" class="bg-custom">
                     <ul>
                         {% for genre in genres %}
                             <li>
@@ -24,7 +24,7 @@
                             </li>
                         {% endfor %}
                     </ul>
-                </div>
+                </aside>
             {% endif %}
             <div id="page-content-wrapper">
                 <header id="top-bar-wrapper">
