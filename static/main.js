@@ -1,5 +1,5 @@
 
-$(function() {
+$(document).ready(function() {
 
     var $wrapper = $("#wrapper")
     var $genresToggler = $("#genres-toggler")
@@ -7,9 +7,9 @@ $(function() {
     $genresToggler.click(function(e) {
         e.preventDefault();
         $(this).blur();
-        
+
         $wrapper.toggleClass("toggled");
-        
+
         if (!$wrapper.hasClass("toggled")) {
             displayHideSidebarButton($(this));
         } else {
@@ -17,17 +17,24 @@ $(function() {
         }
     });
 
+    var $cachedWindowWidth = $(window).width();
     $(window).resize(function() {
-        windowWidth = $(this).width();
-        
-        if (windowWidth <= 992) {
-            $wrapper.addClass("toggled");
-            displayShowSidebarButton($genresToggler);
-        } else {
-            $wrapper.removeClass("toggled");
-            displayHideSidebarButton($genresToggler);
+        // Check if window width has actually changed
+        // and that it's not just androic/ios broswer
+        // triggering a resize event on scroll.
+        if ($(window).width() != $cachedWindowWidth) {
+            var $newwindowWidth = $(window).width();
+
+            if ($newwindowWidth <= 992) {
+                $wrapper.addClass("toggled");
+                displayShowSidebarButton($genresToggler);
+            } else {
+                $wrapper.removeClass("toggled");
+                displayHideSidebarButton($genresToggler);
+            }
         }
     });
+
 
     function displayHideSidebarButton(genresToggle) {
         $(genresToggle).html("&laquo;");
