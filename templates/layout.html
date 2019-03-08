@@ -15,15 +15,17 @@
     </head>
     <body>
         <div class="d-flex toggled" id="wrapper">
-            <div id="sidebar-wrapper" class="bg-custom">
-                <ul>
-                    {% for genre in genres %}
-                        <li>
-                            <a class="sidebar-items-padding" href="#">{{ genre }}</a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
+            {% if not title %}
+                <div id="sidebar-wrapper" class="bg-custom">
+                    <ul>
+                        {% for genre in genres %}
+                            <li>
+                                <a class="sidebar-items-padding" href="#">{{ genre }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
             <div id="page-content-wrapper">
                 <header id="top-bar-wrapper">
                     <nav class="navbar navbar-dark navbar-expand-lg bg-custom fixed-top">
