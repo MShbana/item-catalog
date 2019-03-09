@@ -12,17 +12,20 @@ body {
 }
 
 .bg-custom {
-    background: #3E3455;
-}
-
-.bg-custom.navbar {
-    border-bottom: 1px solid #2C253C;
+    border-bottom: 1px solid #403659;
+    background: #534C67;
 }
 
 #sidebar-wrapper {
-    border-right: 1px solid #2C253C;
+    background: #423D52;
+    border-right: 1px solid #3A3644;
+    bottom: 0;
+    left: 0;
     overflow-x: hidden;
-    position: relative;
+    overflow-y: scroll;
+    padding-top: 57px;
+    position: fixed;
+    top: 0;
     transition: width .25s ease-out;
     -webkit-transition: width .25s ease-out;
     -moz-transition: width .25s ease-out;
@@ -38,14 +41,15 @@ body {
 #sidebar-wrapper > ul {
     list-style-type: none;
     padding-left: 0;
+    margin-bottom: 0;
 }
 
-#sidebar-wrapper .sidebar-items-padding {
+#sidebar-items-padding {
     padding: 15px 30px;
 }
 
 #sidebar-wrapper > ul > li > a {
-    border-bottom: 1px solid #2C253C;
+    border-bottom: 1px solid #504A64;
     display: block;
 }
 
@@ -56,12 +60,12 @@ body {
 
 #sidebar-wrapper > ul > li > a,
 #top-bar-wrapper .navbar-nav .nav-link {
-    color: #ACAAAA;
+    color: #BBB9B9;
 }
 
 #sidebar-wrapper > ul > li > a:hover,
 #top-bar-wrapper .navbar-nav .nav-link:hover {
-    background: #302942;
+    background: #312E38;
     color: #FFFFFF;
     display: block;
     text-decoration: none;
@@ -85,7 +89,8 @@ body {
     p { font-size: 0.6em; }
     .btn,
     #sidebar-wrapper > ul > li,
-    #top-bar-wrapper .navbar-toggler > .navbar-toggler-icon { font-size: 80%; }    
+    #top-bar-wrapper .navbar-toggler > .navbar-toggler-icon { font-size: 80%; }
+    #sidebar-wrapper { width: 100%; }
 }
 
 @media screen and (min-width: 320px) and (max-width: 479px) {
@@ -97,6 +102,7 @@ body {
     .btn,
     #sidebar-wrapper > ul > li,
     #top-bar-wrapper .navbar-toggler > .navbar-toggler-icon { font-size: 90%; }
+    #sidebar-wrapper { width: 100%; }
 }
 
 @media screen and (min-width: 480px) and (max-width: 767px){ 

@@ -16,11 +16,11 @@
     <body>
         <div class="d-flex toggled" id="wrapper">
             {% if not title %}
-                <div id="sidebar-wrapper" class="bg-custom">
+                <div id="sidebar-wrapper">
                     <ul>
                         {% for genre in genres %}
                             <li>
-                                <a class="sidebar-items-padding" href="#">{{ genre }}</a>
+                                <a id="sidebar-items-padding" href="#">{{ genre }}</a>
                             </li>
                         {% endfor %}
                     </ul>
