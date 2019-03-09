@@ -31,6 +31,7 @@ body {
     -moz-transition: width .25s ease-out;
     -o-transition: width .25s ease-out;
     width: 400px;
+    z-index: 1;
 }
 
 #wrapper.toggled > #sidebar-wrapper {
