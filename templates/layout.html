@@ -15,12 +15,12 @@
     </head>
     <body>
         <div class="d-flex toggled" id="wrapper">
-            {% if not title %}
-                <aside id="sidebar-wrapper" class="bg-custom">
+            {% if not title %}        
+                <aside id="sidebar-wrapper">
                     <ul>
                         {% for genre in genres %}
                             <li>
-                                <a class="sidebar-items-padding" href="#">{{ genre }}</a>
+                                <a id="sidebar-items-padding" href="#">{{ genre }}</a>
                             </li>
                         {% endfor %}
                     </ul>
