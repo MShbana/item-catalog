@@ -82,6 +82,8 @@ body {
     font-size: 100%;
 }
 
+/* #font size Responsiveness# */
+
 @media screen and (max-width: 320px) {
     body { padding-top: 50px; }
     h1 { font-size: 1.4em; }
@@ -109,7 +111,7 @@ body {
     .btn,
     #sidebar-wrapper > ul > li,
     #top-bar-wrapper .navbar-toggler > .navbar-toggler-icon { font-size: 90%; }
-    #sidebar-wrapper { width: 100%; }
+    #sidebar-wrapper { width: 220px; }
 }
 
 @media screen and (min-width: 480px) and (max-width: 767px){ 
@@ -142,3 +144,5 @@ body {
     h6 { font-size: 1.05em; }
     p { font-size: 1em; }
 }
+
+/* /#Responsiveness# */
