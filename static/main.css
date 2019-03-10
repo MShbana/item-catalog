@@ -87,6 +87,9 @@ body {
     h1 { font-size: 1.4em; }
     h2 { font-size: 1.075em; }
     h3 { font-size: 0.85em; }
+    h4 { font-size: 0.7em; }
+    h5 { font-size: 0.65em; }
+    h6 { font-size: 0.63em; }
     p { font-size: 0.6em; }
     .btn,
     #sidebar-wrapper > ul > li,
@@ -99,6 +102,9 @@ body {
     h1 { font-size: 1.7em; }
     h2 { font-size: 1.375em; }
     h3 { font-size: 1.15em; }
+    h4 { font-size: 0.95em; }
+    h5 { font-size: 0.9em; }
+    h6 { font-size: 0.87em; }
     p { font-size: 0.8em; }
     .btn,
     #sidebar-wrapper > ul > li,
@@ -110,6 +116,9 @@ body {
     h1 { font-size: 2em; }
     h2 { font-size: 1.575em; }
     h3 { font-size: 1.2em; }
+    h4 { font-size: 1em; }
+    h5 { font-size: 0.8em; }
+    h6 { font-size: 0.75em; }
     p { font-size: 0.85em; }
 }
 
@@ -118,6 +127,9 @@ body {
     h1 { font-size: 2.2em; }
     h2 { font-size: 1.675em; }
     h3 { font-size: 1.35em; }
+    h4 { font-size: 1.15em; }
+    h5 { font-size: 1.1em; }
+    h6 { font-size: 0.92em; }
     p { font-size: 0.9em; }
 }
 
@@ -125,5 +137,8 @@ body {
     h1 {  font-size: 2.4em; } 
     h2 { font-size: 1.775em; }
     h3 { font-size: 1.45em; }
+    h4 { font-size: 1.25em; }
+    h5 { font-size: 1.15em; }
+    h6 { font-size: 1.05em; }
     p { font-size: 1em; }
 }
