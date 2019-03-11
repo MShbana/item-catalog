@@ -8,8 +8,8 @@
                 <div class="col-12">
                     <h4><a class="user-name" href="#">User Name will go here</a></h4>
                 </div>
-                <div class="col-12">
-                    <small class="text-muted vertical-centered">Date Posted</small>
+                <div class="col-12 pl-md-4 pl-lg-3">
+                    <small class="text-muted vertical-centered">{{ movie.date_posted.strftime("%Y-%m-%d %I:%M %p") }}</small>
                 </div>
             </div>
         </div>
@@ -17,36 +17,35 @@
     <hr style="width: 90%">
     <section class="row article-content">
         <div class="col-4 col-xl-3 text-center">
-            <img class="article-img text-center center-block" src="{{ url_for('static', filename='imgs/movie_pics/movie_poster_default.jpg') }}" alt="Movie Poster Picture">
+            <img class="article-img text-center center-block" src="{{ url_for('static', filename='imgs/movie_pics/' + movie.poster ) }}" alt="Movie Poster Picture">
         </div>
         <div class="col-8 col-xl-9 padding-0">
             <div class="row padding-0">
                 <div class="col-6 col-md-5 col-lg-4 col-xl-3">
-                    <h2 class="article-title"><a href="#">Movie Name</a></h2>
+                    <h3 class="article-title"><a href="#">{{ movie.title }}</a></h3>
                 </div>
-                <div class="col-6 col-md-7 col-lg-8 col-xl-9 padding-0">
-                    <small class="text-muted">(Release Year)</small>
+                <div class="col-6 col-md-7 col-lg-8 col-xl-9 padding-0 text-muted">
+                    <small>({{ movie.release_year }})</small>
                 </div>
             </div>
-            <div class="row text-muted movie-details">
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <small>{movie.genre}</small>
+            <div class="row movie-details text-muted">
+                <div class="col-12 col-sm-5 col-lg-3">
+                    <small>Genre: <span class="text-info">{{ movie.genre.name }}</span></small>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <small>{movie.director}</small>
+                <div class="col-12 col-sm-7 col-lg-4">
+                    <small class="text-">Directed by: <span class="text-info">{{ movie.director }}</span></small>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <small>{movie.rate}/10</small>
+                <div class="col-12 col-sm-5 col-lg-2">
+                    <small>Rate: <span class="text-info">{{ movie.rate }}/10</span></small>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <small>{movie.duration}min</small>
+                <div class="col-12 col-sm-7 col-lg-3">
+                    <small>Duration: <span class="text-info">{{ movie.duration }}min</span></small>
                 </div>
             </div>
             <hr>
             <div class="row movie-storyline">
                 <div class="col-12">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid accusantium architecto labore! Non quo sint assumenda repellendus odio dolor recusandae asperiores alias eius laudantium, minus, consequuntur blanditiis nostrum dignissimos enim.</p>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum rem perferendis est qui pariatur veritatis aut, vero eligendi, assumenda quos quasi ad delectus maiores amet molestias quam voluptatem, quisquam aliquid!</p>
+                    <p>{{ movie.storyline }}</p>
                 </div>
             </div>
         </div>

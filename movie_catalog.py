@@ -3,13 +3,9 @@ from models import db, Movie, Genre
 from setup import app
 
 
-# Dummy Data #
-# genres = ['Action', 'Adventure', 'Animation', 'Biography', 'Comedy', 'Crime', 'Documentary'	, 'Drama', 'Family', 'Fantasy', 'Game Show', 'History', 'Horror', 'Music', 'Musical', 'Mystery', 'News', 'Reality-TV', 'Romance', 'Sci-Fi', 'Sport'	, 'Superhero', 'Talk Show', 'Thriller', 'War', 'Western']
-movies = ['Home Alone', 'The Purge', 'Rush Hour', "The God Father", "Eternal Sunshine of the Spottless Mind"]
-
-
 @app.route('/')
 @app.route('/home')
 def home():
     genres = Genre.query.all()
+    movies = Movie.query.order_by(Movie.date_posted.desc()).limit(5).all()
     return render_template('home.html', genres=genres, movies=movies)
