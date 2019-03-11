@@ -1,1 +1,7 @@
 {% extends "layout.html" %}
+{% block content %}
+    <h2 class="pb-2 text-center">Selected Movies Genre</h2>
+    {% for movie in movies %}
+        {% include "movie_layout.html" %}
+    {% endfor %}
+{% endblock %}
