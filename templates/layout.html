@@ -15,32 +15,28 @@
     </head>
     <body>
         <div class="d-flex toggled" id="wrapper">
-            {% if not title %}
-                <aside id="sidebar-wrapper">
-                    <ul class="padding-0">
-                        {% for genre in genres %}
-                            <li>
-                                <a id="sidebar-items-padding" href="#">{{ genre.name }}</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </aside>
-            {% endif %}
+            <aside id="sidebar-wrapper">
+                <ul class="padding-0">
+                    {% for genre in genres %}
+                        <li>
+                            <a id="sidebar-items-padding" href="{{ url_for('genre', genre_id=genre.id) }}">{{ genre.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </aside>
             <div id="page-content-wrapper">
                 <header id="top-bar-wrapper">
                     <nav class="navbar navbar-dark navbar-expand-lg bg-custom fixed-top">
                         <div class="container">
-                            {% if not title %}
-                                <a class="btn btn-light" title="Show all Movie Genres" role="button" id="genres-toggler" href="#">Genres &raquo;</a>
-                            {% endif %}
+                            <a class="btn btn-light" title="Show all Movie Genres" role="button" id="genres-toggler" href="#">Genres &raquo;</a>
                             <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                             <div class="collapse navbar-collapse" id="navbarToggle">
-                                <a class="navbar-brand ml-auto d-none d-lg-block" href="#">Movie Catalog</a>
+                                <a class="navbar-brand ml-auto d-none d-lg-block" href="/">Movie Catalog</a>
                                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0 text-center">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Home</a>
+                                        <a class="nav-link" href="{{ url_for('home') }}">Home</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">New Movie</a>

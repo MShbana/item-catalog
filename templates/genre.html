@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1 class="page-heading">{{ genre.name }} Movies</h1>
+    {% if not movies %}
+        <h2 class="text-center">There is no <span class="text-primary">{{ genre.name }} Movies</span> yet. Create the first one?</h2>
+    {% endif %}
+    {%for movie in movies %}
+        {% include "movie_layout.html" %}
+    {% endfor %}
+{% endblock %}
