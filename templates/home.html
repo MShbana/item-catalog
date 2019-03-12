@@ -1,7 +1,21 @@
 {% extends "layout.html" %}
+{% block sidebar_toggler %}
+    <a class="btn btn-light" title="Show all Movie Genres" role="button" id="sidebar-toggler" href="#">Genres &raquo;</a>
+{% endblock sidebar_toggler %}
+{% block sidebar %}
+    <aside id="sidebar-wrapper">
+        <ul class="padding-0">
+            {% for genre in genres %}
+                <li>
+                    <a id="sidebar-items-padding" href="{{ url_for('genre', genre_id=genre.id) }}">{{ genre.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </aside>
+{% endblock sidebar %}
 {% block content %}
     <h1 class="page-heading">Latest Movies</h1>
     {% for movie in movies %}
         {% include "movie_layout.html" %}
     {% endfor %}
-{% endblock %}
+{% endblock content %}

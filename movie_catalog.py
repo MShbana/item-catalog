@@ -14,10 +14,16 @@ def home():
 @app.route('/genre/<int:genre_id>')
 def genre(genre_id):
     genres = Genre.query.all()
-    genre = Genre.query.filter_by(id=genre_id).first()
+    genre = Genre.query.get(int(genre_id))
     movies = Movie.query.filter_by(genre=genre).all()
     return render_template('genre.html',
                            genres=genres,
                            genre=genre,
                            movies=movies,
-                           title=f'{genre.name} Movies')
+                           title=genre.name)
+
+
+@app.route('/genre/<int:genre_id>/movie/<int:movie_id>')
+def movie(genre_id, movie_id):
+    movie = Movie.query.get(int(movie_id))
+    return render_template('movie.html', movie=movie, title=movie.title)

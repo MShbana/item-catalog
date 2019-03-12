@@ -22,7 +22,7 @@
         <div class="col-8 col-xl-9 padding-0 pl-2">
             <div class="row padding-0">
                 <div class="col-6 col-md-5 col-lg-4 col-xl-3">
-                    <h3 class="article-title"><a href="#">{{ movie.title }}</a></h3>
+                    <h3 class="article-title"><a href="{{ url_for('movie', genre_id=movie.genre_id, movie_id=movie.id) }}">{{ movie.title }}</a></h3>
                 </div>
                 <div class="col-6 col-md-7 col-lg-8 col-xl-9 padding-0 text-muted">
                     <small>({{ movie.release_year }})</small>
@@ -30,7 +30,7 @@
             </div>
             <div class="row movie-details text-muted">
                 <div class="col-auto">
-                    <small>Genre: <span class="text-info">{{ movie.genre.name }}</span></small>
+                    <small>Genre: <span><a class="text-info" href="{{ url_for('genre', genre_id=movie.genre.id) }}">{{ movie.genre.name }}</a></span></small>
                 </div>
                 <div class="col-auto">
                     <small>Rate: <span class="text-info">{{ movie.rate }}/10</span></small>

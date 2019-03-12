@@ -2,7 +2,7 @@
 $(document).ready(function() {
 
     var $wrapper = $("#wrapper");
-    var $genresToggler = $("#genres-toggler");
+    var $genresToggler = $("#sidebar-toggler");
     var $navbarCollapse = $(".navbar-collapse");
 
 

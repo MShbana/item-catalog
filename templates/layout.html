@@ -15,20 +15,12 @@
     </head>
     <body>
         <div class="d-flex toggled" id="wrapper">
-            <aside id="sidebar-wrapper">
-                <ul class="padding-0">
-                    {% for genre in genres %}
-                        <li>
-                            <a id="sidebar-items-padding" href="{{ url_for('genre', genre_id=genre.id) }}">{{ genre.name }}</a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </aside>
+            {% block sidebar %}{% endblock sidebar %}
             <div id="page-content-wrapper">
                 <header id="top-bar-wrapper">
                     <nav class="navbar navbar-dark navbar-expand-lg bg-custom fixed-top">
                         <div class="container">
-                            <a class="btn btn-light" title="Show all Movie Genres" role="button" id="genres-toggler" href="#">Genres &raquo;</a>
+                            {% block sidebar_toggler %}{% endblock sidebar_toggler %}
                             <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
@@ -53,7 +45,7 @@
                     </nav>
                 </header>
                 <main role="main" class="container" id="main-content">
-                    {% block content %}{% endblock %}
+                    {% block content %}{% endblock content %}
                 </main>
             </div>
         </div> 
