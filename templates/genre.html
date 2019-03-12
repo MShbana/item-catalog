@@ -16,7 +16,7 @@
 {% block content %}
     <h1 class="page-heading">{{ genre.name }} Movies</h1>
     {% if not movies %}
-    <div class="content-section py-4">
+    <div class="content-section px-2 py-4">
         <h2 class="text-center"><span >{{ genre.name }}</span> genre is still empty. Do you want to <a href="#">create</a> the first one?</h2>
     </div>
     {% endif %}
