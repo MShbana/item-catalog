@@ -147,6 +147,10 @@ body {
     width: 100%;
 }
 
+.content-section hr {
+    width: 90%;
+}
+
 .article-content hr {
     width: 95%;
 }
