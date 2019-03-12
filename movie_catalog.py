@@ -16,10 +16,12 @@ def genre(genre_id):
     genres = Genre.query.all()
     genre = Genre.query.get(int(genre_id))
     movies = Movie.query.filter_by(genre=genre).all()
+    movies_count = Movie.query.filter_by(genre=genre).count()
     return render_template('genre.html',
                            genres=genres,
                            genre=genre,
                            movies=movies,
+                           movies_count=movies_count,
                            title=genre.name)
 
 
