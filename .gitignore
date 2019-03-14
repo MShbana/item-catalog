@@ -1,3 +1,5 @@
 *.pyc
 __pycache__/
 site.db
+static/imgs/movie_pics/*
+!static/imgs/movie_pics/movie_poster_default.jpg
