@@ -79,18 +79,38 @@ $(document).ready(function() {
         displayShowSidebarButton($genresToggler);
     });
 
+    function getSelectValues(selectionMenuID, start, end, defaultOptionText) {
+        options = "<option value=''> Select " + defaultOptionText + "</option>";
+        for ( var i = start; i <= end; i++) {
+            options += "<option>" + i + "</option>";
+        }
+        selectionMenuID.html(options);
+    };
 
-    // Get the years from 1877 until now to
-    // pass it to the movie release-year datalist
-    // in the create/edit movie form.
-    var start = 1877;
-    var end = new Date().getFullYear();
-    // Default empty value to make sure user chooses one.
-    var options = "<option value=''>Select Release Year</option>";
-    for(var year = start; year <= end; year++){
-        // Concatenate all the years inside the option tags.
-        options += "<option>" + year + "</option>"
-    }
-    // Pass the resulting tags to the years datalist.
-    document.getElementById("release-year").innerHTML = options;
+    var $rate = $("#rate");
+    var rateDefault = "Movie Rate from 1 to 10";
+    getSelectValues($rate, 1, 10, rateDefault);
+    var $releaseYear = $("#release-year");
+    var currentYear = new Date().getFullYear();
+    var yearDefault = "Movie Release year";
+    getSelectValues($releaseYear, 1877, currentYear, yearDefault);
+
+    // Stop forms from being submitted before validation.
+    // Show boostrap invalid feedback instead of default browser's feedback.
+    (function validateFormInput() {
+        'use strict';
+        window.addEventListener('load', function() {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+
 });
