@@ -1,0 +1,25 @@
+{% macro render_field(field) %}
+    {% if field.errors %}
+        {{ field(class='form-control is-invalid') }}
+        <div class='invalid-feedback'>
+            {% for error in field.errors %}
+                <div>{{ error }}</div>
+            {% endfor %}
+        </div>
+    {% else %}
+        {{ field(class='form-control') }}
+    {% endif %}
+{% endmacro %}
+{% macro render_file_field(field) %}
+    {{ field.label(class='form-control-label') }}
+    {% if field.errors %}
+        {{ field(class='form-control-file is-invalid') }}
+        <div class='invalid-feedback'>
+            {% for error in field.errors %}
+                <div>{{ error }}</div>
+            {% endfor %}
+        </div>
+    {% else %}
+        {{ field(class='form-control-file') }}
+    {% endif %}
+{% endmacro %}

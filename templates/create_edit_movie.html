@@ -1,94 +1,40 @@
 {% extends "layout.html" %}
-
+{% from "_render_field.html" import render_field, render_file_field %}
 {% block content %}
 <div class="content-section">
     <form class="p-4" action="" method="POST" enctype="multipart/form-data">
         <fieldset>
             <legend class="border-bottom pb-2 mb-4">{{ legend }}</legend>
-            {{ form.hidden_tag() }}
             {{ form.csrf_token }}
+            {{ form.hidden_tag() }}
             <div class="form-group">
                 {{ form.title.label(class='form-control-label') }}
-                {% if form.errors['title'] %}
-                    {{ form.title(class='form-control is-invalid') }}
-                    <div class='invalid-feedback'>
-                        {% for error in form.errors['title'] %}
-                            <div>{{ error }}</div>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    {{ form.title(class='form-control') }}
-                {% endif %}
+                {{ render_field(form.title) }}
             </div>
             <div class="form-group">
                 {{ form.director.label(class='form-control-label') }}
-                {% if form.errors['director'] %}
-                    {{ form.director(class='form-control is-invalid') }}
-                    <div class='invalid-feedback'>
-                        {% for error in form.errors['director'] %}
-                            <div>{{ error }}</div>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    {{ form.director(class='form-control') }}
-                {% endif %}
+                {{ render_field(form.director) }}
             </div>
             <div class="form-group">
                 {{ form.release_year.label(class='form-control-label') }}
-                {% if form.errors['release_year'] %}
-                    {{ form.release_year(class='form-control is-invalid') }}
-                    <div class='invalid-feedback'>
-                        {% for error in form.errors['release_year'] %}
-                            <div>{{ error }}</div>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    {{ form.release_year(class='form-control') }}
-                {% endif %}
+                {{ render_field(form.release_year) }}
             </div>
             <div class="form-group">
                 {{ form.genre.label(class='form-control-label') }}
-                {% if form.errors['genre'] %}
-                    {{ form.genre(class='form-control is-invalid') }}
-                    <div class='invalid-feedback'>
-                        {% for error in form.errors['genre'] %}
-                            <div>{{ error }}</div>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    {{ form.genre(class='form-control') }}
-                {% endif %}
+                {{ render_field(form.genre) }}
             </div> 
             <div class="form-row form-group">
                 <div class="col-md-12">
                     <label class="form-control-label">Duration</label>
                 </div>
                 <div class="col-md-5">
-                    {% if form.errors['duration_hrs'] %}
-                        {{ form.duration_hrs(class='form-control is-invalid') }}
-                        <div class='invalid-feedback'>
-                            {% for error in form.errors['duration_hrs'] %}
-                                <div>{{ error }}</div>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.duration_hrs(class='form-control') }}
-                    {% endif %}
+                    {{ render_field(form.duration_hrs) }}
                 </div>
                 <div class="col-md-1 pt-1">
                     {{ form.duration_hrs.label(class='form-control-label') }}
                 </div>                    
                 <div class="col-md-5">
-                    {% if form.errors['duration_mins'] %}
-                        {{ form.duration_mins(class='form-control is-invalid') }}
-                        <div class='invalid-feedback'>
-                            {% for error in form.errors['duration_mins'] %}
-                                <div>{{ error }}</div>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.duration_mins(class='form-control') }}
-                    {% endif %}
+                    {{ render_field(form.duration_mins) }}
                 </div>
                 <div class="col-md-1 pt-1">
                     {{ form.duration_mins.label(class='form-control-label')}}
@@ -96,42 +42,14 @@
             </div>
             <div class="form-group">
                 {{ form.rate.label(class='form-control-label') }}
-                {% if form.errors['rate'] %}
-                    {{ form.rate(class='form-control is-invalid') }}
-                    <div class='invalid-feedback'>
-                        {% for error in form.errors['rate'] %}
-                            <div>{{ error }}</div>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    {{ form.rate(class='form-control') }}
-                {% endif %}
+                {{ render_field(form.rate) }}
             </div>
             <div class="form-group">
-                {{ form.poster.label(class='form-control-label') }}
-                {% if form.errors['poster'] %}
-                    {{ form.poster(class='form-control-file is-invalid') }}
-                    <div class='invalid-feedback'>
-                        {% for error in form.errors['poster'] %}
-                            <div>{{ error }}</div>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    {{ form.poster(class='form-control-file') }}
-                {% endif %}
+                {{ render_file_field(form.poster) }}
             </div>
             <div class="form-group">
-                {{ form.storyline.label(class='form-control-label') }}
-                {% if form.errors['storyline'] %}
-                    {{ form.storyline(class='form-control is-invalid') }}
-                    <div class='invalid-feedback'>
-                        {% for error in form.errors['storyline'] %}
-                            <div>{{ error }}</div>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    {{ form.storyline(class='form-control') }}
-                {% endif %}
+                {{ form.rate.label(class='form-control-label') }}
+                {{ render_field(form.storyline) }}
             </div>
         </fieldset>
         <div class="text-center">
