@@ -24,7 +24,8 @@ def genre(genre_id):
     # Used to show all genres in the sidebar.
     genres = Genre.query.all()
     genre = Genre.query.get(int(genre_id))
-    movies = Movie.query.filter_by(genre=genre).all()
+    movies = Movie.query.filter_by(genre=genre)\
+        .order_by(Movie.date_posted.desc()).all()
     movies_count = Movie.query.filter_by(genre=genre).count()
     return render_template('genre.html',
                            genres=genres,
@@ -52,8 +53,9 @@ def create_movie():
     form = NewMovieForm()
     form.genre.choices = [(None, 'Select Movie Genre')]
     form.genre.choices.extend([(genre.name, genre.name) for genre in genres])
-    form.rate.choices =  [(rate, rate) for rate in range(1, 11)]
-    form.release_year.choices = [(year, year) for year in range(1877, datetime.datetime.now().year)]
+    form.rate.choices = [(rate, rate) for rate in range(1, 11)]
+    form.release_year.choices = [(year, year) for year in range(
+                                        1877, datetime.datetime.now().year)]
 
     if form.validate_on_submit():
         genre = Genre.query.filter_by(name=form.genre.data).first()
