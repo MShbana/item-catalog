@@ -164,9 +164,10 @@ body {
 }
 
 .page-heading {
-    color: #252756;
-    text-shadow: 0 0 5px #00ffff, 0 0 5px #0000FF;
-    padding: 10px 0;
+    background: #4D4D4D;
+    border-radius: 2px;
+    color: #FFFFFF;
+    padding: 15px 0;
     text-align: center;
 }
 
