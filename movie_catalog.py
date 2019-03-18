@@ -1,5 +1,7 @@
+import datetime
 import utils
 from flask import render_template, redirect, request, url_for, flash
+from forms import NewMovieForm
 from models import db, Movie, Genre
 from setup import app
 
@@ -46,19 +48,26 @@ def create_movie():
 
     # Used in the form's "Select Genre" field.
     genres = Genre.query.all()
-    if request.method == 'POST':
-        genre = Genre.query.filter_by(name=request.form['genre']).first()
-        movie = Movie(title=request.form['title'],
-                      director=request.form['director'],
-                      release_year=request.form['release-year'],
+
+    form = NewMovieForm()
+    form.genre.choices = [(None, 'Select Movie Genre')]
+    form.genre.choices.extend([(genre.name, genre.name) for genre in genres])
+    form.rate.choices =  [(rate, rate) for rate in range(1, 11)]
+    form.release_year.choices = [(year, year) for year in range(1877, datetime.datetime.now().year)]
+
+    if form.validate_on_submit():
+        genre = Genre.query.filter_by(name=form.genre.data).first()
+        movie = Movie(title=form.title.data,
+                      director=form.director.data,
+                      release_year=form.release_year.data,
                       genre=genre,
-                      duration_hrs=request.form['duration-hrs'],
-                      duration_mins=request.form['duration-mins'],
-                      rate=request.form['rate'],
-                      storyline=request.form['storyline'])
+                      duration_hrs=form.duration_hrs.data,
+                      duration_mins=form.duration_mins.data,
+                      rate=form.rate.data,
+                      storyline=form.storyline.data)
         # check if the user uploaded an image, if not use the default.
         if request.files.get('poster'):
-            uploaded_poster_img = request.files['poster']
+            uploaded_poster_img = form.poster.data
             stored_poster_fn = utils.save_image(uploaded_poster_img,
                                                 'static/imgs/movie_pics')
             movie.poster = stored_poster_fn
@@ -67,5 +76,4 @@ def create_movie():
         flash(f'You have successfully added the movie "{movie.title}"'
               f' to the "{movie.genre.name}" genre!', category='success')
         return redirect(url_for('movie', genre_id=genre.id, movie_id=movie.id))
-
-    return render_template('create_edit_movie.html', genres=genres)
+    return render_template('create_edit_movie.html', form=form)

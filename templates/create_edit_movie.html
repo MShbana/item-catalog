@@ -2,33 +2,69 @@
 
 {% block content %}
 <div class="content-section">
-    <form class="p-4 needs-validation" action="" method="POST" enctype="multipart/form-data" novalidate>
+    <form class="p-4" action="" method="POST" enctype="multipart/form-data">
         <fieldset>
             <legend class="border-bottom pb-2 mb-4">New Movie</legend>
+            {{ form.hidden_tag() }}
+            {{ form.csrf_token }}
             <div class="form-group">
-                <label class="form-control-label" for="title">Title</label>
+                <!-- <label class="form-control-label" for="title">Title</label>
                 <input type="text" class="form-control" name="title" id="title" placeholder="Title" minlength="2" maxlength="50" pattern="^([a-zA-Z0-9][a-zA-Z0-9\s:.-]+)$" required>
                 <div class="invalid-feedback">
                     Please choose a valid movie title: 2 to 50 characters length.
-                </div>
+                </div> -->
+                {{ form.title.label(class='form-control-label') }}
+                {% if form.errors['title'] %}
+                    {{ form.title(class='form-control is-invalid') }}
+                    <div class='invalid-feedback'>
+                        {% for error in form.errors['title'] %}
+                            <div>{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.title(class='form-control') }}
+                {% endif %}
             </div>
+
             <div class="form-group">
-                <label class="form-control-label" for="director">Director</label>
+                <!-- <label class="form-control-label" for="director">Director</label>
                 <input type="text" class="form-control" name="director" id="director" placeholder="Director" minlength="2" maxlength="30" pattern="^([a-zA-Z][a-zA-Z\s.-]+)$" required>
                 <div class="invalid-feedback">
                     Please choose a valid director name: 2 to 30 characters length.
-                </div>
+                </div> -->
+                {{ form.director.label(class='form-control-label') }}
+                {% if form.errors['director'] %}
+                    {{ form.director(class='form-control is-invalid') }}
+                    <div class='invalid-feedback'>
+                        {% for error in form.errors['director'] %}
+                            <div>{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.director(class='form-control') }}
+                {% endif %}
             </div>
             <div class="form-group">
-                <label class="form-control-label" for="release-year">Release Year</label>
+                <!-- <label class="form-control-label" for="release-year">Release Year</label>
                 <select class="custom-select" name="release-year" id="release-year" required>
                 </select>
                 <div class="invalid-feedback">
                     Please choose the movie release year.
-                </div>
+                </div> -->
+                {{ form.release_year.label(class='form-control-label') }}
+                {% if form.errors['release_year'] %}
+                    {{ form.release_year(class='form-control is-invalid') }}
+                    <div class='invalid-feedback'>
+                        {% for error in form.errors['release_year'] %}
+                            <div>{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.release_year(class='form-control') }}
+                {% endif %}
             </div>
             <div class="form-group">
-                <label class="form-control-label" for="genre">Genre</label>
+                <!-- <label class="form-control-label" for="genre">Genre</label>
                 <select class="custom-select" name="genre" id="genre" required>
                     <option value="">
                         Select Movie Genre
@@ -41,57 +77,124 @@
                 </select>
                 <div class="invalid-feedback">
                     Please choose one of the available movie genres.
-                </div>
+                </div> -->
+                {{ form.genre.label(class='form-control-label') }}
+                {% if form.errors['genre'] %}
+                    {{ form.genre(class='form-control is-invalid') }}
+                    <div class='invalid-feedback'>
+                        {% for error in form.errors['genre'] %}
+                            <div>{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.genre(class='form-control') }}
+                {% endif %}
             </div> 
             <div class="form-row form-group">
                 <div class="col-md-12">
                     <label class="form-control-label">Duration</label>
                 </div>
                 <div class="col-md-5">
-                    <input type="text" class="form-control" name="duration-hrs" id="duration-hrs" placeholder="Duration in Hours" minlength="1" maxlength="2" pattern="^[0-9]|10" required>
+                    <!-- <input type="text" class="form-control" name="duration-hrs" id="duration-hrs" placeholder="Duration in Hours" minlength="1" maxlength="2" pattern="^[0-9]|10" required>
                     <div class="invalid-feedback">
                         Please select the movie duration from 0 to 10 hours.
-                    </div>
+                    </div> -->
+                    {% if form.errors['duration_hrs'] %}
+                        {{ form.duration_hrs(class='form-control is-invalid') }}
+                        <div class='invalid-feedback'>
+                            {% for error in form.errors['duration_hrs'] %}
+                                <div>{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.duration_hrs(class='form-control') }}
+                    {% endif %}
                 </div>
                 <div class="col-md-1 pt-1">
-                    <label class="form-control-label" for="duration-hrs">hrs</label>
+                    <!-- <label class="form-control-label" for="duration-hrs">hrs</label> -->
+                    {{ form.duration_hrs.label(class='form-control-label') }}
                 </div>                    
                 <div class="col-md-5">
-                    <input type="text" class="form-control" name="duration-mins"  id="duration-mins" placeholder="Duration in Minutes" minlength="1" maxlength="2" pattern="^([0-9]|[1-5][0-9]|60)$" required>
+                    <!-- <input type="text" class="form-control" name="duration-mins"  id="duration-mins" placeholder="Duration in Minutes" minlength="1" maxlength="2" pattern="^([0-9]|[1-5][0-9]|60)$" required>
                     <div class="invalid-feedback">
                         Please select the movie duartion from 0 to 60 minutes.
-                    </div>
+                    </div> -->
+                    {% if form.errors['duration_mins'] %}
+                        {{ form.duration_mins(class='form-control is-invalid') }}
+                        <div class='invalid-feedback'>
+                            {% for error in form.errors['duration_mins'] %}
+                                <div>{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.duration_mins(class='form-control') }}
+                    {% endif %}
                 </div>
                 <div class="col-md-1 pt-1">
-                    <label class="form-control-label" for="duration-mins">mins</label>
+                    <!-- <label class="form-control-label" for="duration-mins">mins</label> -->
+                    {{ form.duration_mins.label(class='form-control-label')}}
                 </div>
             </div>
             <div class="form-group">
-                <label class="form-control-label" for="rate">Rate</label>
+                <!-- <label class="form-control-label" for="rate">Rate</label>
                 <select class="custom-select" name="rate" id="rate" required>
                 </select>
                 <div class="invalid-feedback">
                     Please select the movie rate from 1 to 10.
-                </div>
+                </div> -->
+                {{ form.rate.label(class='form-control-label') }}
+                {% if form.errors['rate'] %}
+                    {{ form.rate(class='form-control is-invalid') }}
+                    <div class='invalid-feedback'>
+                        {% for error in form.errors['rate'] %}
+                            <div>{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.rate(class='form-control') }}
+                {% endif %}
             </div>
             <div class="form-group">
-                <label class="form-control-label" for="poster">Poster</label>
+                <!-- <label class="form-control-label" for="poster">Poster</label>
                 <input type="file" class="form-control-file" name="poster" accept="image/*" id="poster">
                 <div class="invalid-feedback">
                     Please upload an image with the right format (jpg/jpeg/png).<br>
                     In case you don't upload an image, the default poster will be used.
-                </div>
+                </div> -->
+                {{ form.poster.label(class='form-control-label') }}
+                {% if form.errors['poster'] %}
+                    {{ form.poster(class='form-control-file is-invalid') }}
+                    <div class='invalid-feedback'>
+                        {% for error in form.errors['poster'] %}
+                            <div>{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.poster(class='form-control-file') }}
+                {% endif %}
             </div>
             <div class="form-group">
-                <label class="form-control-label" for="storyline">Storyline</label>
+                <!-- <label class="form-control-label" for="storyline">Storyline</label>
                 <textarea class="form-control" name="storyline" id="storyline" minlength="50" maxlength="900" required></textarea>
                 <div class="invalid-feedback">
                     Please provide the movie storyline with at least 50 characters.
-                </div>
+                </div> -->
+                {{ form.storyline.label(class='form-control-label') }}
+                {% if form.errors['storyline'] %}
+                    {{ form.storyline(class='form-control is-invalid') }}
+                    <div class='invalid-feedback'>
+                        {% for error in form.errors['storyline'] %}
+                            <div>{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.storyline(class='form-control') }}
+                {% endif %}
             </div>
         </fieldset>
         <div class="text-center">
-            <button type="submit" class="btn btn-sm btn-primary">Post</Button>
+            <!-- <button type="submit" class="btn btn-sm btn-primary">Post</Button> -->
+            {{ form.post(class='btn btn-sm btn-primary') }}
             <a class="btn btn-sm btn-secondary" role="button" id="cancel" href="{{ url_for('home') }}">Cancel</a>
         </div>
     </form>
