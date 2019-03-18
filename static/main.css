@@ -13,13 +13,16 @@ body {
 }
 
 .bg-custom {
-    background: #2B264B;
-    border-bottom: 1px solid #302B55;
+    background: #2F2D3E;
+}
+
+.bg-custom,
+#sidebar-wrapper > ul > li > a {
+    border-bottom: 1px solid #1D1C26;
 }
 
 #sidebar-wrapper {
-    background: #322C58;
-    border-right: 1px solid #21194D;
+    border-right: 1px solid #1D1C26;
     bottom: 0;
     left: 0;
     overflow-x: hidden;
@@ -50,7 +53,6 @@ body {
 }
 
 #sidebar-wrapper > ul > li > a {
-    border-bottom: 1px solid #21194D;
     display: block;
 }
 
@@ -66,7 +68,7 @@ body {
 
 #sidebar-wrapper > ul > li > a:hover,
 #top-bar-wrapper .navbar-nav .nav-link:hover {
-    background: #4C3CB4;
+    background: #423C72;
     color: #FFFFFF;
     display: block;
     text-decoration: none;
