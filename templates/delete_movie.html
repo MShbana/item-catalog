@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class='content-section text-center p-4'>
+        <h2>Are you sure you want to delete <span class="text-danger">{{ movie.title.title() }}</span>?</h2>
+        <form action="" method="POST">
+            <div class='form-group'>
+                <input class="btn btn-sm btn-danger" type="submit" value="Delete">
+                <a class='btn btn-sm btn-secondary' href="{{ url_for('home') }}">Cancel</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

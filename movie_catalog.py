@@ -74,15 +74,17 @@ def create_movie():
         flash(f'You have successfully added the movie "{movie.title}"'
               f' to the "{movie.genre.name}" genre!', category='success')
         return redirect(url_for('movie', genre_id=genre.id, movie_id=movie.id))
-    return render_template('create_edit_movie.html', form=form, legend='New Movie')
+    return render_template('create_edit_movie.html',
+                           form=form, legend='New Movie', title='New Movie')
 
 
-@app.route('/genre/<int:genre_id>/movie/<int:movie_id>/update', methods=['GET', 'POST'])
+@app.route('/genre/<int:genre_id>/movie/<int:movie_id>/update',
+           methods=['GET', 'POST'])
 def update_movie(movie_id, genre_id):
     '''Update Movie Information and commit to the database.'''
 
     movie = Movie.query.get(int(movie_id))
-    form= UpdateMovieForm(obj=movie)
+    form = UpdateMovieForm(obj=movie)
     form.genre.choices = [(movie.genre.name, movie.genre.name)]
 
     if form.validate_on_submit():
@@ -99,17 +101,28 @@ def update_movie(movie_id, genre_id):
                                                 'static/imgs/movie_pics')
             movie.poster = stored_poster_fn
         db.session.commit()
-        flash(f'You have successfully update the movie "{movie.title}"!', category='success')
-        return redirect(url_for('movie', genre_id=movie.genre_id, movie_id=movie.id))
-    return render_template('create_edit_movie.html', form=form, legend=f'Update {movie.title}')
+        flash(f'You have successfully update the movie "{movie.title}"!',
+              category='success')
+        return redirect(url_for('movie',
+                                genre_id=movie.genre_id, movie_id=movie.id))
+    return render_template('create_edit_movie.html',
+                           form=form,
+                           legend=f'Update {movie.title}',
+                           title=f'Update {movie.title.title()}')
 
 
-@app.route('/genre/<int:genre_id>/movie/<int:movie_id>/delete')
+@app.route('/genre/<int:genre_id>/movie/<int:movie_id>/delete',
+           methods=['GET', 'POST'])
 def delete_movie(genre_id, movie_id):
     '''Delete a movie from the database.'''
 
     movie = Movie.query.get(int(movie_id))
-    db.session.delete(movie)
-    db.session.commit()
-    flash(f'You have successfully deleted the movie "{movie.title}"!', category='success')
-    return redirect(url_for('home'))
+    if request.method == 'POST':
+        db.session.delete(movie)
+        db.session.commit()
+        flash(f'You have successfully deleted the movie "{movie.title}"!',
+              category='success')
+        return redirect(url_for('home'))
+    return render_template('delete_movie.html',
+                           movie=movie,
+                           title=f'Delete {movie.title}')
