@@ -102,3 +102,14 @@ def update_movie(movie_id, genre_id):
         flash(f'You have successfully update the movie "{movie.title}"!', category='success')
         return redirect(url_for('movie', genre_id=movie.genre_id, movie_id=movie.id))
     return render_template('create_edit_movie.html', form=form, legend=f'Update {movie.title}')
+
+
+@app.route('/genre/<int:genre_id>/movie/<int:movie_id>/delete')
+def delete_movie(genre_id, movie_id):
+    '''Delete a movie from the database.'''
+
+    movie = Movie.query.get(int(movie_id))
+    db.session.delete(movie)
+    db.session.commit()
+    flash(f'You have successfully deleted the movie "{movie.title}"!', category='success')
+    return redirect(url_for('home'))
