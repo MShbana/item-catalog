@@ -4,7 +4,8 @@
 }
 
 body {
-    background: #E9EBEE;
+    background: url("../static/imgs/site_bg.jpg");
+    background-color: #E9EBEE;
     font-family: "Times New Roman", Times, serif;
     font-size: 100%;
     height: 100%;
@@ -12,13 +13,13 @@ body {
 }
 
 .bg-custom {
-    background: #534C67;
-    border-bottom: 1px solid #403659;
+    background: #2B264B;
+    border-bottom: 1px solid #302B55;
 }
 
 #sidebar-wrapper {
-    background: #423D52;
-    border-right: 1px solid #3A3644;
+    background: #322C58;
+    border-right: 1px solid #21194D;
     bottom: 0;
     left: 0;
     overflow-x: hidden;
@@ -49,7 +50,7 @@ body {
 }
 
 #sidebar-wrapper > ul > li > a {
-    border-bottom: 1px solid #504A64;
+    border-bottom: 1px solid #21194D;
     display: block;
 }
 
@@ -65,7 +66,7 @@ body {
 
 #sidebar-wrapper > ul > li > a:hover,
 #top-bar-wrapper .navbar-nav .nav-link:hover {
-    background: #312E38;
+    background: #4C3CB4;
     color: #FFFFFF;
     display: block;
     text-decoration: none;
@@ -82,7 +83,7 @@ body {
 }
 
 #main-content {
-    background: #F4F4F5;
+    background: #48455F;
     border-left: 1px solid #D4D4D8;
     border-right: 1px solid #D4D4D8;
     margin-bottom: 0 !important;
@@ -93,10 +94,9 @@ body {
 }
 
 .content-section {
-    background: #FFFFFF;
+    background: #F3F3F7;
     border: 1px solid #BEBACA;
     border-radius: 2px;
-    box-shadow: 8px 8px 5px #999999;
     margin: 20px 0;
     padding-bottom: 10px;
 }
@@ -121,10 +121,6 @@ body {
     width: 60px;
     margin: 0 auto;
     display: block;
-}
-
-.user-name {
-    color: #3B3B3B;
 }
 
 .user-name:hover,
@@ -156,15 +152,14 @@ body {
 }
 
 .article-title > a {
-    color: #5C5C5C;
+    color: #000000;
 }
 
 .article-content .movie-storyline {
-    color: #6B6B6B;
+    color: #5C5C5C;
 }
 
 .page-heading {
-    background: #4D4D4D;
     border-radius: 2px;
     color: #FFFFFF;
     padding: 15px 0;
@@ -174,6 +169,10 @@ body {
 small {
     font-size: 70%;
 }
+
+ .border-bottom {
+    color: #2C0FD2;
+ }
 
 /* #Responsiveness# */
 @media screen and (max-width: 320px) {
