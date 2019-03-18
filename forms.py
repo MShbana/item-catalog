@@ -7,19 +7,9 @@ from wtforms.validators import (InputRequired, Regexp, Length,
                                 NumberRange, Optional)
 
 
-class NewMovieForm(FlaskForm):
+class BaseMovieForm(FlaskForm):
     current_year = datetime.datetime.now().year
-    
-    title = StringField('Title',
-                        render_kw={
-                            'placeholder': 'Movie Title'
-                        },
-                        validators=[
-                            InputRequired(),
-                            Regexp('^([a-zA-Z0-9][a-zA-Z0-9\s:.-]*[a-zA-Z0-9])$', message='Title may only contain [letters, numbers, hyphens, periods, colons, spaces] and should begin and end with a letter or number.'),
-                            Length(min=2, max=50)
-                        ]
-    )
+
     director = StringField('Director',
                             render_kw={
                                 'placeholder': 'Movie Director'
@@ -32,7 +22,7 @@ class NewMovieForm(FlaskForm):
     )
     release_year = SelectField('Release Year',
                                coerce=int,
-                               choices=[],
+                               choices=[(year, year) for year in range(1877, current_year)],
                                validators=[
                                     InputRequired()
                                ]
@@ -63,7 +53,7 @@ class NewMovieForm(FlaskForm):
     )
     rate = SelectField('Rate',
                        coerce=int,
-                       choices=[],
+                       choices=[(rate, rate) for rate in range(1, 11)],
                        default=10,
                        validators=[
                            InputRequired()
@@ -82,3 +72,36 @@ class NewMovieForm(FlaskForm):
                               ]
     )
     post = SubmitField('Post')
+
+
+class NewMovieForm(BaseMovieForm):
+    title = StringField('Title',
+                        render_kw={
+                            'placeholder': 'Movie Title'
+                        },
+                        validators=[
+                            InputRequired(),
+                            Regexp('^([a-zA-Z0-9][a-zA-Z0-9\s:.-]*[a-zA-Z0-9])$', message='Title may only contain [letters, numbers, hyphens, periods, colons, spaces] and should begin and end with a letter or number.'),
+                            Length(min=2, max=50)
+                        ]
+    )
+
+class UpdateMovieForm(BaseMovieForm):
+    title = StringField('Title',
+                        render_kw={
+                            'readonly': True
+                        },
+                        validators=[
+                            InputRequired(),
+                            Regexp('^([a-zA-Z0-9][a-zA-Z0-9\s:.-]*[a-zA-Z0-9])$', message='Title may only contain [letters, numbers, hyphens, periods, colons, spaces] and should begin and end with a letter or number.'),
+                            Length(min=2, max=50)
+                        ]
+    )
+    genre = SelectField('Genre',
+                        render_kw={
+                            'readonly':True
+                        },
+                        validators=[
+                            InputRequired()
+                        ]
+    )

@@ -28,7 +28,7 @@
                     <small>({{ movie.release_year }})</small>
                 </div>
                 <div class="col-auto ml-0 ml-md-auto">
-                    <a class="btn btn-sm btn-block btn-info" href="#">Update</a>
+                    <a class="btn btn-sm btn-block btn-info" href="{{ url_for('update_movie', genre_id=movie.genre_id, movie_id=movie.id) }}">Update</a>
                     <a class="btn btn-sm btn-block btn-danger" href="#">Delete</a>
                 </div>
             </div>
