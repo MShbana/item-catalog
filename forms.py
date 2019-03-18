@@ -71,7 +71,6 @@ class BaseMovieForm(FlaskForm):
                                   Length(min=50, max=1000)
                               ]
     )
-    post = SubmitField('Post')
 
 
 class NewMovieForm(BaseMovieForm):
@@ -85,6 +84,7 @@ class NewMovieForm(BaseMovieForm):
                             Length(min=2, max=50)
                         ]
     )
+    submit = SubmitField('Post')
 
 class UpdateMovieForm(BaseMovieForm):
     title = StringField('Title',
@@ -105,3 +105,4 @@ class UpdateMovieForm(BaseMovieForm):
                             InputRequired()
                         ]
     )
+    submit = SubmitField('Update')
