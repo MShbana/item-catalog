@@ -101,7 +101,7 @@ def update_movie(movie_id, genre_id):
                                                 'static/imgs/movie_pics')
             movie.poster = stored_poster_fn
         db.session.commit()
-        flash(f'You have successfully update the movie "{movie.title}"!',
+        flash(f'You have successfully updated the movie "{movie.title}"!',
               category='success')
         return redirect(url_for('movie',
                                 genre_id=movie.genre_id, movie_id=movie.id))
@@ -117,11 +117,13 @@ def delete_movie(genre_id, movie_id):
     '''Delete a movie from the database.'''
 
     movie = Movie.query.get(int(movie_id))
+    movie_title = movie.title
+    movie_genre = movie.genre.name
     if request.method == 'POST':
         db.session.delete(movie)
         db.session.commit()
-        flash(f'You have successfully deleted the movie "{movie.title}"!',
-              category='success')
+        flash(f'You have successfully deleted the movie "{movie_title}"'
+              f' from the "{movie_genre}" genre!', category='success')
         return redirect(url_for('home'))
     return render_template('delete_movie.html',
                            movie=movie,
