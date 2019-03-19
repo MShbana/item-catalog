@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1 class="page-heading">{{ user.username }} Movies ({{ movies_count }})</h1>
+    {% for movie in movies %}
+        {% include "movie_layout.html" %}
+    {% endfor %}
+{% endblock %}

@@ -161,6 +161,17 @@ def delete_movie(genre_id, movie_id):
                            title=f'Delete {movie.title}')
 
 
+@app.route('/<string:username>/<int:member_id>/movies')
+def user_movies(username, member_id):
+    '''Display all the movies belonging a user.'''
+
+    user = Member.query.get(int(member_id))
+    movies = Movie.query.filter_by(member_id=member_id).order_by(Movie.date_posted.desc()).all()
+    movies_count = Movie.query.filter_by(member_id=member_id).count()
+    return render_template('user_movies.html', movies=movies, user=user, movies_count=movies_count)
+
+
+
 # Create anti-forgery state token
 @app.route('/login')
 def google_login():
@@ -290,7 +301,8 @@ def get_user_id(email):
 @app.route('/gdisconnect')
 @login_required
 def gdisconnect():
-        # Only disconnect a connected user.
+    logout_user()
+    # Only disconnect a connected user.
     access_token = login_session.get('access_token')
     if access_token is None:
         response = make_response(
@@ -315,6 +327,6 @@ def gdisconnect():
     else:
         # For whatever reason, the given token was invalid.
         response = make_response(
-            json.dumps('Failed to revoke token for given user.', 400))
+            json.dumps('Failed to revoke token for given user.'), 400)
         response.headers['Content-Type'] = 'application/json'
-        return response
+        return redirect(url_for('home'))

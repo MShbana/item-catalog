@@ -32,15 +32,15 @@
                                     {% if current_user.is_authenticated %}
                                         <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Account
+                                                {{ current_user.username }}
                                             </a>
                                             <div class="dropdown-menu bg-custom" aria-labelledby="navbarDropdownMenuLink">
-                                                <a class="dropdown-item" href="#" >{{ current_user.username.title() }}</a>
+                                                <a class="dropdown-item" href="{{ url_for('user_movies', username=current_user.username, member_id=current_user.id) }}" >My Movies</a>
                                                 <a class="dropdown-item" href="{{ url_for('create_movie') }}">New Movie</a>
                                                 <a class="dropdown-item" href="{{ url_for('gdisconnect') }}">Log Out</a>
                                             </div>
                                         </li>
-                                        <li class="pl-lg-2">
+                                        <li class="pl-lg-2 pt-2 pt-lg-0">
                                             <img class="rounded-circle" src="{{ current_user.profile_pic }}" style="width: 40px; height: 40px;">
                                         </li>
                                     {% else %}
