@@ -26,7 +26,10 @@ def home():
 
     # Used to show all genres in the sidebar.
     genres = Genre.query.all()
-    movies = Movie.query.order_by(Movie.date_posted.desc()).limit(10).all()
+    # Pass query parameter of the page number to the url.
+    page = request.args.get('page', 1, type=int)
+    # Show only five movies per page, then load more when page nubmer clicked.
+    movies = Movie.query.order_by(Movie.date_posted.desc()).paginate(per_page=5, page=page)
     return render_template('home.html', genres=genres, movies=movies)
 
 

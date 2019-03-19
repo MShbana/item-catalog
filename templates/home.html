@@ -15,7 +15,20 @@
 {% endblock sidebar %}
 {% block content %}
     <h1 class="page-heading">Latest Movies</h1>
-    {% for movie in movies %}
+    {% for movie in movies.items %}
         {% include "movie_layout.html" %}
     {% endfor %}
+    <div class="text-center">
+        {% for page_num in movies.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+            {% if page_num %}
+                {% if movies.page == page_num %}
+                    <a class="btn btn-primary mb-4" href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+                {% else %}
+                    <a class="btn btn-outline-primary mb-4" href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+                {% endif %}
+            {% else %}
+                <span class="text-primary"> ... </span>
+            {% endif %}
+        {% endfor %}
+    </div>
 {% endblock content %}
