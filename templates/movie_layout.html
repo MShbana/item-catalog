@@ -1,12 +1,12 @@
 <article class="content-section">
     <header class="row article-metadata pl-md-2 pl-lg-0">
         <div class="col-2 col-md-1 text-center padding-0">
-            <img class="user-img rounded-circle" src="{{ url_for('static', filename='imgs/profile_pics/op_profile_default.png') }}" alt="User's Profile Picture">
+            <img class="user-img rounded-circle" src="{{ movie.author.profile_pic }}" alt="User's Profile Picture">
         </div>
         <div class="col-9 col-md-9 vertical-centered padding-0">
             <div class="row">
                 <div class="col-12">
-                    <h4><a class="user-name" href="#">User Name will go here</a></h4>
+                    <h4><a class="user-name" href="#">{{ movie.author.username.title() }}</a></h4>
                 </div>
                 <div class="col-12 pl-3 pl-md-4 pl-lg-3">
                     <small class="text-muted vertical-centered">{{ movie.date_posted.strftime("%Y-%m-%d %I:%M %p") }}</small>
@@ -17,7 +17,7 @@
     <hr>
     <section class="row article-content">
         <div class="col-4 col-xl-3 text-center">
-            <img class="article-img text-center center-block" src="{{ url_for('static', filename='imgs/movie_pics/' + movie.poster ) }}" alt="Movie Poster Picture">
+            <img class="article-img text-center center-block" src="{{ url_for('static', filename='imgs/movie_pics/' + movie.poster) }}" alt="Movie Poster Picture">
         </div>
         <div class="col-8 col-xl-9 pl-2 padding-0 ">
             <div class="row padding-0">
@@ -27,10 +27,12 @@
                 <div class="col-2 col-md-2 text-muted padding-0">
                     <small>({{ movie.release_year }})</small>
                 </div>
-                <div class="col-auto ml-0 ml-md-auto">
-                    <a class="btn btn-sm btn-block btn-info" href="{{ url_for('update_movie', genre_id=movie.genre_id, movie_id=movie.id) }}">Update</a>
-                    <a class="btn btn-sm btn-block btn-danger"  href="{{ url_for('delete_movie', genre_id=movie.genre_id, movie_id=movie.id) }}">Delete</a>
-                </div>
+                {% if current_user == movie.author %}
+                    <div class="col-auto ml-0 ml-md-auto">
+                        <a class="btn btn-sm btn-block btn-info" href="{{ url_for('update_movie', genre_id=movie.genre_id, movie_id=movie.id) }}">Update</a>
+                        <a class="btn btn-sm btn-block btn-danger"  href="{{ url_for('delete_movie', genre_id=movie.genre_id, movie_id=movie.id) }}">Delete</a>
+                    </div>
+                {% endif %}
             </div>
             <div class="row movie-details text-muted">
                 <div class="col-auto">

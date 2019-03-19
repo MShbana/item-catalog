@@ -58,7 +58,7 @@ $(document).ready(function() {
 
 
     // Make top navbar collapse when nav-link is clicked.
-    var $navLink = $(".navbar-nav > li > a")
+    var $navLink = $(".navbar-nav > li > .navlink.collapsed")
     $navLink.on("click", function(e) {
         $navbarCollapse.collapse("hide");
     });

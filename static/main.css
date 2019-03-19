@@ -62,12 +62,14 @@ body {
 }
 
 #sidebar-wrapper > ul > li > a,
-#top-bar-wrapper .navbar-nav .nav-link {
+#top-bar-wrapper .navbar-nav .nav-link,
+#top-bar-wrapper .navbar-nav .dropdown-item {
     color: #BBB9B9;
 }
 
 #sidebar-wrapper > ul > li > a:hover,
-#top-bar-wrapper .navbar-nav .nav-link:hover {
+#top-bar-wrapper .navbar-nav .nav-link:hover,
+#top-bar-wrapper .navbar-nav .dropdown-item:hover {
     background: #423C72;
     color: #FFFFFF;
     display: block;
