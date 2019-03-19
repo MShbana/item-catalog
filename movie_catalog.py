@@ -26,7 +26,7 @@ def home():
 
     # Used to show all genres in the sidebar.
     genres = Genre.query.all()
-    movies = Movie.query.order_by(Movie.date_posted.desc()).limit(5).all()
+    movies = Movie.query.order_by(Movie.date_posted.desc()).limit(10).all()
     return render_template('home.html', genres=genres, movies=movies)
 
 
