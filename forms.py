@@ -11,7 +11,7 @@ class BaseMovieForm(FlaskForm):
     current_year = datetime.datetime.now().year
 
     dir_reg = ('^([a-zA-Z][a-zA-Z\s.-]*[a-zA-Z])$')
-    dir_err = ('Director name may only contain [letters, spaces, hyphens,'
+    dir_err = ('Director\'s name may only contain [letters, spaces, hyphens,'
                ' periods] and should begin and end with a letter.')
     h_err = 'Duartion Hours must be between 0 and 10.'
     m_err = 'Duration Minutes must be between 0 and 60.'
@@ -55,10 +55,10 @@ class BaseMovieForm(FlaskForm):
 
 
 class NewMovieForm(BaseMovieForm):
-    title_reg = '^([a-zA-Z0-9][a-zA-Z0-9\s:.-]*[a-zA-Z0-9])$'
-    title_err = ('Title may only contain [letters, numbers, hyphens, periods,'
-                 ' colons, spaces] and should begin and end'
-                 ' with a letter or number.')
+    title_reg = '^([a-zA-Z0-9][a-zA-Z0-9\s:.\'\"-?]*)$'
+    title_err = ('Title may only contain alphanumeric characters,'
+                 ' and should begin with a letter'
+                 ' or a number')
 
     title = StringField('Title',
                         render_kw={'placeholder': 'Movie Title'},
@@ -70,10 +70,10 @@ class NewMovieForm(BaseMovieForm):
 
 
 class UpdateMovieForm(BaseMovieForm):
-    title_reg = '^([a-zA-Z0-9][a-zA-Z0-9\s:.-]*[a-zA-Z0-9])$'
-    title_err = ('Title may only contain [letters, numbers, hyphens, periods,'
-                 ' colons, spaces] and should begin and end'
-                 ' with a letter or number.')
+    title_reg = '^([a-zA-Z0-9][a-zA-Z0-9\s:.\'\"-?]*)$'
+    title_err = ('Title may only contain alphanumeric characters,'
+                 ' and should begin with a letter'
+                 ' or a number')
 
     title = StringField('Title',
                         render_kw={'readonly': True},
