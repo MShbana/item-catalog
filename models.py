@@ -25,6 +25,7 @@ class Genre(db.Model):
     __tablename__ = 'genre'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(20), unique=True, nullable=False)
+    movies = db.relationship('Movie')
 
     def __repr__(self):
         return f"Genre('{self.name}')"
@@ -32,8 +33,8 @@ class Genre(db.Model):
     @property
     def serialize(self):
         return {
-            'name': self.name,
             'id': self.id,
+            'name': self.name
         }
 
 
@@ -66,3 +67,22 @@ class Movie(db.Model):
                 f" '{self.genre.name}'"
                 f" '{self.author.username}'"
                 f" '{self.date_posted.strftime('%Y-%m-%d %I:%M%p')}')")
+
+    @property
+    def serialize(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'date_posted': self.date_posted,
+            'release_year': self.release_year,
+            'director': self.director,
+            'duration_hrs': self.duration_hrs,
+            'duration_mins': self.duration_mins,
+            'rate': self.rate,
+            'poster': self.poster,
+            'genre': self.genre.name,
+            'genre_id': self.genre_id,
+            'user': self.user.username,
+            'user_id': self.user_id,
+            'poster': self.poster
+        }

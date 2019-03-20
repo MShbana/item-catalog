@@ -34,7 +34,7 @@ def home():
     return render_template('home.html', genres=genres, movies=movies)
 
 
-# API endpoint for all genres (names and ID's)
+# JSON API endpoint for all genres (names and ID's)
 @app.route('/genres/JSON')
 def genres_JSON():
     genres = Genre.query.all()
@@ -63,8 +63,15 @@ def genre(genre_id):
 def movie(genre_id, movie_id):
     '''Display the selected movie page.'''
 
-    movie = Movie.query.get(int(movie_id))
+    movie = Movie.query.filter_by(genre_id=genre_id, id=movie_id).first()
     return render_template('movie.html', movie=movie, title=movie.title)
+
+
+# JSON API endpoint for single movie.
+@app.route('/genre/<int:genre_id>/movie/<int:movie_id>/JSON')
+def movie_JSON(genre_id, movie_id):
+    movie = Movie.query.filter_by(genre_id=genre_id, id=movie_id).first()
+    return jsonify([movie.serialize])
 
 
 @app.route('/movie/new', methods=['GET', 'POST'])
