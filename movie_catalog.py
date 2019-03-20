@@ -9,7 +9,7 @@ from flask import (render_template, redirect, request,
                    abort, make_response)
 from flask_login import login_user, logout_user, current_user, login_required
 from forms import NewMovieForm, UpdateMovieForm
-from models import db, Movie, Genre, Member
+from models import db, Movie, Genre, User
 from oauth2client.client import flow_from_clientsecrets, FlowExchangeError
 from setup import app
 from sqlalchemy.orm.exc import NoResultFound
@@ -29,7 +29,8 @@ def home():
     # Pass query parameter of the page number to the url.
     page = request.args.get('page', 1, type=int)
     # Show only five movies per page, then load more when page nubmer clicked.
-    movies = Movie.query.order_by(Movie.date_posted.desc()).paginate(per_page=5, page=page)
+    movies = Movie.query.order_by(Movie.date_posted.desc()).\
+        paginate(per_page=5, page=page)
     return render_template('home.html', genres=genres, movies=movies)
 
 
@@ -81,7 +82,7 @@ def create_movie():
                       duration_mins=form.duration_mins.data,
                       rate=form.rate.data,
                       storyline=form.storyline.data,
-                      member=current_user)
+                      user=current_user)
 
         # check if the user uploaded an image, if not use the default.
         if request.files.get('poster'):
@@ -164,15 +165,16 @@ def delete_movie(genre_id, movie_id):
                            title=f'Delete {movie.title}')
 
 
-@app.route('/<string:username>/<int:member_id>/movies')
-def user_movies(username, member_id):
+@app.route('/<string:username>/<int:user_id>/movies')
+def user_movies(username, user_id):
     '''Display all the movies belonging a user.'''
 
-    user = Member.query.get(int(member_id))
-    movies = Movie.query.filter_by(member_id=member_id).order_by(Movie.date_posted.desc()).all()
-    movies_count = Movie.query.filter_by(member_id=member_id).count()
-    return render_template('user_movies.html', movies=movies, user=user, movies_count=movies_count)
-
+    user = User.query.get(int(user_id))
+    movies = Movie.query.filter_by(user_id=user_id).\
+        order_by(Movie.date_posted.desc()).all()
+    movies_count = Movie.query.filter_by(user_id=user_id).count()
+    return render_template('user_movies.html',
+                           movies=movies, user=user, movies_count=movies_count)
 
 
 # Create anti-forgery state token
@@ -270,7 +272,7 @@ def gconnect():
     if not user_id:
         user_id = create_user(login_session)
     login_session['user_id'] = user_id
-    user = Member.query.get(int(user_id))
+    user = User.query.get(int(user_id))
     login_user(user)
 
     output = f'<h1>Welcome {login_session["username"]}!</h1>'
@@ -280,24 +282,24 @@ def gconnect():
                ' -webkit-border-radius: 150px;'
                '-moz-border-radius: 150px;">')
     flash('You are now logged in as:'
-          f' {login_session["username"].title()}!', category='success')
+          f' {login_session["username"]}!', category='success')
     return output
 
 
 def create_user(login_session):
-    new_user = Member(username=login_session['username'], email=login_session[
+    new_user = User(username=login_session['username'], email=login_session[
                    'email'], profile_pic=login_session['picture'])
     db.session.add(new_user)
     db.session.commit()
-    user = Member.query.filter_by(email=login_session['email']).first()
+    user = User.query.filter_by(email=login_session['email']).first()
     return user.id
 
 
 def get_user_id(email):
     try:
-        user = Member.query.filter_by(email=email).first()
+        user = User.query.filter_by(email=email).first()
         return user.id
-    except NoResultFound:
+    except:
         return None
 
 

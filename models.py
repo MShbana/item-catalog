@@ -4,12 +4,12 @@ from flask_login import UserMixin
 
 
 @login_manager.user_loader
-def load_user(member_id):
-    return Member.query.get(int(member_id))
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 
-class Member(db.Model, UserMixin):
-    __tablename__ = 'member'
+class User(db.Model, UserMixin):
+    __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(50), unique=True, nullable=False)
@@ -45,8 +45,8 @@ class Movie(db.Model):
                        default='movie_poster_default.jpg')
     genre_id = db.Column(db.Integer, db.ForeignKey('genre.id'), nullable=False)
     genre = db.relationship('Genre')
-    member_id = db.Column(db.Integer, db.ForeignKey('member.id'), nullable=False)
-    member = db.relationship('Member')
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    user = db.relationship('User')
 
     def __repr__(self):
         return ("Movie"
