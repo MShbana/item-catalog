@@ -6,7 +6,7 @@ import string
 import utils
 from flask import (render_template, redirect, request,
                    url_for, flash, session as login_session,
-                   abort, make_response)
+                   abort, make_response, jsonify)
 from flask_login import login_user, logout_user, current_user, login_required
 from forms import NewMovieForm, UpdateMovieForm
 from models import db, Movie, Genre, User
@@ -32,6 +32,13 @@ def home():
     movies = Movie.query.order_by(Movie.date_posted.desc()).\
         paginate(per_page=5, page=page)
     return render_template('home.html', genres=genres, movies=movies)
+
+
+# API endpoint for all genres (names and ID's)
+@app.route('/genres/JSON')
+def genres_JSON():
+    genres = Genre.query.all()
+    return jsonify(genres=[genre.serialize for genre in genres])
 
 
 @app.route('/genre/<int:genre_id>/movies')

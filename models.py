@@ -29,6 +29,13 @@ class Genre(db.Model):
     def __repr__(self):
         return f"Genre('{self.name}')"
 
+    @property
+    def serialize(self):
+        return {
+            'name': self.name,
+            'id': self.id,
+        }
+
 
 class Movie(db.Model):
     __tablename__ = 'movie'
