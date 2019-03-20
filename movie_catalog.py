@@ -204,6 +204,16 @@ def user_movies(username, user_id):
                            title=f'{user.username}')
 
 
+# JSON API endpoint for each user,
+# its username, email, id and movies.
+@app.route('/user/<int:user_id>/JSON')
+def user_JSON(user_id):
+    user = User.query.get(int(user_id))
+    movies = user.movies
+    return jsonify(user=[user.serialize],
+                   movies=[movie.serialize for movie in movies])
+
+
 # Create anti-forgery state token
 @app.route('/login')
 def google_login():

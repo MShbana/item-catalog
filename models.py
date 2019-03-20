@@ -20,6 +20,14 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         return f"User('{self.username}', '{self.email}', '{self.movies}')"
 
+    @property
+    def serialize(self):
+        return {
+            'id': self.id,
+            'uesrname': self.username,
+            'email': self.email,
+        }
+
 
 class Genre(db.Model):
     __tablename__ = 'genre'
