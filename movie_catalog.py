@@ -12,7 +12,6 @@ from forms import NewMovieForm, UpdateMovieForm
 from models import db, Movie, Genre, User
 from oauth2client.client import flow_from_clientsecrets, FlowExchangeError
 from setup import app
-from sqlalchemy.orm.exc import NoResultFound
 
 
 CLIENT_ID = json.loads(
@@ -35,7 +34,7 @@ def home():
 
 
 # JSON API endpoint for all genres (names and ID's).
-@app.route('/genres/JSON')
+@app.route('/API/genres/JSON')
 def genres_JSON():
     genres = Genre.query.all()
     return jsonify(genres=[genre.serialize for genre in genres])
@@ -61,7 +60,7 @@ def genre(genre_id):
 
 # JSON API endpoint for each genre,
 # its name, id, movies and movies' details.
-@app.route('/genre/<int:genre_id>/movies/JSON')
+@app.route('/API/genre/<int:genre_id>/JSON')
 def genre_JSON(genre_id):
     genre = Genre.query.get(genre_id)
     movies = Movie.query.filter_by(genre_id=genre_id).all()
@@ -78,10 +77,17 @@ def movie(genre_id, movie_id):
 
 
 # JSON API endpoint for each movie and all its details.
-@app.route('/genre/<int:genre_id>/movie/<int:movie_id>/JSON')
+@app.route('/API/genre/<int:genre_id>/movie/<int:movie_id>/JSON')
 def movie_JSON(genre_id, movie_id):
     movie = Movie.query.filter_by(genre_id=genre_id, id=movie_id).first()
     return jsonify(movie=[movie.serialize])
+
+
+# JSON API endpoint for all movies and their details.
+@app.route('/API/movies/JSON')
+def movies_JSON():
+    movies = Movie.query.all()
+    return jsonify(movies=[movie.serialize for movie in movies])
 
 
 @app.route('/movie/new', methods=['GET', 'POST'])
@@ -206,7 +212,7 @@ def user_movies(username, user_id):
 
 # JSON API endpoint for each user,
 # its username, email, id and movies.
-@app.route('/user/<int:user_id>/JSON')
+@app.route('/API/user/<int:user_id>/JSON')
 def user_JSON(user_id):
     user = User.query.get(int(user_id))
     movies = user.movies
