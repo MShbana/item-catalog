@@ -284,7 +284,7 @@ def gconnect():
                ' border-radius: 150px;'
                ' -webkit-border-radius: 150px;'
                '-moz-border-radius: 150px;">')
-    flash('You are now logged in as:'
+    flash('You are now logged in as'
           f' {login_session["username"]}!', category='success')
     return output
 
@@ -310,7 +310,7 @@ def get_user_id(email):
 @login_required
 def gdisconnect():
     logout_user()
-    flash('You have logged out.', category='warning')
+    flash('You are now logged out.', category='warning')
     # Only disconnect a connected user.
     access_token = login_session.get('access_token')
     if access_token is None:
