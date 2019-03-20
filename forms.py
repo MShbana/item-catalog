@@ -51,7 +51,7 @@ class BaseMovieForm(FlaskForm):
                                    FileAllowed(['jpg', 'jpeg', 'png'])])
     storyline = TextAreaField('Storyline',
                               validators=[InputRequired(),
-                                          Length(min=50, max=1000)])
+                                          Length(min=50, max=700)])
 
 
 class NewMovieForm(BaseMovieForm):
