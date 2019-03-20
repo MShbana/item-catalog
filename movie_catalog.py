@@ -130,7 +130,7 @@ def create_movie():
 def update_movie(movie_id, genre_id):
     '''Update Movie Information and commit to the database.'''
 
-    movie = Movie.query.get(int(movie_id))
+    movie = Movie.query.filter_by(genre_id=genre_id, id=movie_id).first()
 
     if movie.author != current_user:
         abort(403)
@@ -170,7 +170,7 @@ def update_movie(movie_id, genre_id):
 def delete_movie(genre_id, movie_id):
     '''Delete a movie from the database.'''
 
-    movie = Movie.query.get(int(movie_id))
+    movie = Movie.query.filter_by(genre_id=genre_id, id=movie_id).first()
 
     if movie.author != current_user:
         abort(403)
