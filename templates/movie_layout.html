@@ -28,13 +28,13 @@
                     <small>({{ movie.release_year }})</small>
                 </div>
                 {% if current_user == movie.author %}
-                    <div class="col-auto ml-0 ml-md-auto">
+                    <div class="col-auto ml-0 ml-md-auto mt-1 mt-lg-0">
                         <a class="btn btn-sm btn-block btn-info" href="{{ url_for('update_movie', genre_id=movie.genre_id, movie_id=movie.id) }}">Update</a>
                         <a class="btn btn-sm btn-block btn-danger"  href="{{ url_for('delete_movie', genre_id=movie.genre_id, movie_id=movie.id) }}">Delete</a>
                     </div>
                 {% endif %}
             </div>
-            <div class="row movie-details text-muted">
+            <div class="row movie-details mt-2 mt-lg-0 text-muted">
                 <div class="col-auto">
                     <small>Genre: <span><a class="text-info" href="{{ url_for('genre', genre_id=movie.genre.id) }}">{{ movie.genre.name }}</a></span></small>
                 </div>

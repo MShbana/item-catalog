@@ -172,12 +172,12 @@ body {
 }
 
 small {
-    font-size: 70%;
+    font-size: 80%;
 }
 
- .border-bottom {
+.border-bottom {
     color: #2C0FD2;
- }
+}
 
 /* #Responsiveness# */
 @media screen and (max-width: 320px) {
@@ -194,7 +194,7 @@ small {
     #top-bar-wrapper .navbar-toggler > .navbar-toggler-icon { font-size: 80%; }
     #sidebar-wrapper { width: 100%; }
     .user-img { height: 30px; width: 30px; }
-    .article-img { height:100px; width: 55px; }
+    .article-img { height:100px; width: 60px; }
 }
 
 @media screen and (min-width: 320px) and (max-width: 479px) {
