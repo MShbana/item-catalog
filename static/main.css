@@ -179,6 +179,17 @@ small {
     color: #2C0FD2;
 }
 
+.movies-count {
+    color: #F5E000;
+    font-size: 50%;
+    font-style: italic;
+}
+
+.user-name,
+.movie-date {
+    padding-left: 15px;
+}
+
 /* #Responsiveness# */
 @media screen and (max-width: 320px) {
     body { padding-top: 50px; }
