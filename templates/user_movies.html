@@ -1,6 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1 class="page-heading">{{ user.username }} Movies ({{ movies_count }})</h1>
+    <h1 class="page-heading">{{ user.username }} Movies <span class="movies-count">{{ movies_count }} movies</span></h1>
+    {% if not movies %}
+        <div class="content-section px-2 py-4">
+            <h2 class="text-center"><span >You haven't added any movies yet. Do you want to <a href="{{ url_for('create_movie') }}">create</a> your first favorite movie?</h2>
+        </div>
+    {% endif %}
     {% for movie in movies %}
         {% include "movie_layout.html" %}
     {% endfor %}

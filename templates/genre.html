@@ -14,10 +14,10 @@
     </aside>
 {% endblock sidebar %}
 {% block content %}
-    <h1 class="page-heading">{{ genre.name }} Movies ({{ movies_count }})</h1>
+    <h1 class="page-heading">{{ genre.name }} Movies <span class="movies-count">{{ movies_count }} movies</span></h1>
     {% if not movies %}
     <div class="content-section px-2 py-4">
-        <h2 class="text-center"><span >{{ genre.name }}</span> genre is still empty. Do you want to <a href="{{ url_for('create_movie') }}">create</a> the first movie?</h2>
+        <h2 class="text-center"><span >{{ genre.name }}</span> genre is still empty. Do you want to <a href="{{ url_for('create_movie') }}">create</a> the first {{ genre.name }} movie?</h2>
     </div>
     {% endif %}
     {% for movie in movies %}

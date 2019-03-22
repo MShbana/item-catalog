@@ -8,8 +8,8 @@
                 <div class="col-12">
                     <h4><a class="user-name" href="{{ url_for('user_movies', username=movie.author.username, user_id=movie.user_id) }}">{{ movie.author.username }}</a></h4>
                 </div>
-                <div class="col-12 pl-3 pl-md-4 pl-lg-3">
-                    <small class="text-muted vertical-centered">{{ movie.date_posted.strftime("%Y-%m-%d %I:%M %p") }}</small>
+                <div class="col-12">
+                    <small class="text-muted movie-date vertical-centered">{{ movie.date_posted.strftime("%Y-%m-%d %I:%M %p") }}</small>
                 </div>
             </div>
         </div>

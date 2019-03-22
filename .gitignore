@@ -6,3 +6,4 @@ static/imgs/movie_pics/*
 client_secret.json
 package-lock.json
 movie_catalog_env/
+.vscode/

@@ -172,11 +172,22 @@ body {
 }
 
 small {
-    font-size: 80%;
+    font-size: 75%;
 }
 
 .border-bottom {
     color: #2C0FD2;
+}
+
+.movies-count {
+    color: #F5E000;
+    font-size: 50%;
+    font-style: italic;
+}
+
+.user-name,
+.movie-date {
+    padding-left: 15px;
 }
 
 /* #Responsiveness# */
@@ -189,6 +200,7 @@ small {
     h5 { font-size: 0.65em; }
     h6 { font-size: 0.63em; }
     p { font-size: 0.6em; }
+    small { font-size: 50%; }
     .btn,
     #sidebar-wrapper > ul > li,
     #top-bar-wrapper .navbar-toggler > .navbar-toggler-icon { font-size: 80%; }
@@ -206,6 +218,7 @@ small {
     h5 { font-size: 0.9em; }
     h6 { font-size: 0.87em; }
     p { font-size: 0.8em; }
+    small { font-size: 60%; }
     .btn,
     #sidebar-wrapper > ul > li,
     #top-bar-wrapper .navbar-toggler > .navbar-toggler-icon { font-size: 90%; }
@@ -222,6 +235,7 @@ small {
     h5 { font-size: 0.8em; }
     h6 { font-size: 0.75em; }
     p { font-size: 0.85em; }
+    small { font-size: 60%; }
     #sidebar-wrapper { width: 300px; }
     .user-img { height: 50px; width: 50px; }
     .article-img {  height:200px; width: 130px; }
@@ -235,6 +249,7 @@ small {
     h5 { font-size: 1.1em; }
     h6 { font-size: 0.92em; }
     p { font-size: 0.9em; }
+    small { font-size: 65%; }
     #sidebar-wrapper { width: 350px; }
     .user-name { padding-left: 10px;}
     .user-img { height: 55px; width: 55px; }
