@@ -128,7 +128,8 @@ body {
 }
 
 .user-name:hover,
-.article-title > a:hover {
+.article-title > a:hover,
+.latest-movies:hover {
     color: #0E06EF;
     text-decoration: none;
 }
@@ -189,6 +190,15 @@ small {
 .movie-date {
     padding-left: 15px;
 }
+
+.latest-movies.author {
+    color: #5C5C5C;
+}
+
+.latest-movies {
+    font-size: 0.8em;
+}
+
 
 /* #Responsiveness# */
 @media screen and (max-width: 320px) {
@@ -264,7 +274,7 @@ small {
     h5 { font-size: 1.15em; }
     h6 { font-size: 1.05em; }
     p { font-size: 1em; }
-
+    .latest-movies { font-size: 0.9em; }
     .user-img { height: 60px; width: 60px; }
     .article-img { height: 270px; width: 200px; }
 }

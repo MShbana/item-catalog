@@ -50,11 +50,13 @@ def genre(genre_id):
     movies = Movie.query.filter_by(genre=genre)\
         .order_by(Movie.date_posted.desc()).all()
     movies_count = Movie.query.filter_by(genre=genre).count()
+    latest_movies = Movie.query.order_by(Movie.date_posted.desc()).limit(10)
     return render_template('genre.html',
                            genres=genres,
                            genre=genre,
                            movies=movies,
                            movies_count=movies_count,
+                           latest_movies=latest_movies,
                            title=genre.name)
 
 
@@ -203,10 +205,12 @@ def user_movies(username, user_id):
     movies = Movie.query.filter_by(user_id=user_id).\
         order_by(Movie.date_posted.desc()).all()
     movies_count = Movie.query.filter_by(user_id=user_id).count()
+    latest_movies = Movie.query.order_by(Movie.date_posted.desc()).limit(10)
     return render_template('user_movies.html',
                            movies=movies,
                            user=user,
                            movies_count=movies_count,
+                           latest_movies=latest_movies,
                            title=f'{user.username}')
 
 
