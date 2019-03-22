@@ -65,7 +65,7 @@ def genre_JSON(genre_id):
     genre = Genre.query.get(genre_id)
     movies = Movie.query.filter_by(genre_id=genre_id).all()
     return jsonify(genre=[genre.serialize],
-                   movies=[movie.serialize for movie in movies])
+                   genre_movies=[movie.serialize for movie in movies])
 
 
 @app.route('/genre/<int:genre_id>/movie/<int:movie_id>')
@@ -224,7 +224,7 @@ def user_JSON(user_id):
     user = User.query.get(int(user_id))
     movies = user.movies
     return jsonify(user=[user.serialize],
-                   movies=[movie.serialize for movie in movies])
+                   user_movies=[movie.serialize for movie in movies])
 
 
 # Create anti-forgery state token
