@@ -14,16 +14,20 @@
     </aside>
 {% endblock sidebar %}
 {% block content %}
-    <h1 class="page-heading">{{ genre.name }} Movies <span class="movies-count">{{ movies_count }} movies</span></h1>
+    {% if movies_count == 1 %}
+        <h1 class="page-heading">{{ genre.name }} Movies <span class="movies-count">{{ movies_count }} movie</span></h1>
+    {% else %}
+        <h1 class="page-heading">{{ genre.name }} Movies <span class="movies-count">{{ movies_count }} movies</span></h1>
+    {% endif %}
     <div class="row">
         <div class="col-md-8">
             {% if not movies %}
-            <div class="content-section px-2 py-4">
-                <h2 class="text-center"><span >{{ genre.name }}</span> genre is still empty. Do you want to <a href="{{ url_for('create_movie') }}">create</a> the first {{ genre.name }} movie?</h2>
-            </div>
+                <div class="content-section px-2 py-4">
+                    <h2 class="text-center"><span >{{ genre.name }}</span> genre is still empty. Do you want to <a href="{{ url_for('create_movie') }}">create</a> the first {{ genre.name }} movie?</h2>
+                </div>
             {% endif %}
             {% for movie in movies %}
-                {% include "movie_layout.html" %}
+                {% include "narrower_movie_layout.html" %}
             {% endfor %}
         </div>
         <div class="col-md-4">

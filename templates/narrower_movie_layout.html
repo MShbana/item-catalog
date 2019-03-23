@@ -1,0 +1,59 @@
+<article class="content-section">
+    <header class="row article-metadata narrower pl-md-2">
+        <div class="col-2 col-md-1 text-center padding-0">
+           <a href="{{ url_for('user_movies', username=movie.author.username, user_id=movie.user_id) }}"><img class="user-img narrower rounded-circle" src="{{ movie.author.profile_pic }}" alt="User's Profile Picture"></a>
+        </div>
+        <div class="col-9 col-md-9 vertical-centered padding-0">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="narrower"><a class="user-name narrower vertical-centered" href="{{ url_for('user_movies', username=movie.author.username, user_id=movie.user_id) }}">{{ movie.author.username }}</a></h4>
+                </div>
+                <div class="col-12">
+                    <small class="text-muted movie-date narrower vertical-centered">{{ movie.date_posted.strftime("%Y-%m-%d %I:%M %p") }}</small>
+                </div>
+            </div>
+        </div>
+    </header>
+    <hr>
+    <section class="row article-content">
+        <div class="col-4 col-xl-3 text-center">
+            <a href="{{ url_for('movie', genre_id=movie.genre_id, movie_id=movie.id) }}"><img class="article-img narrower text-center center-block" src="{{ url_for('static', filename='imgs/movie_pics/' + movie.poster) }}" alt="Movie Poster Picture"></a>
+        </div>
+        <div class="col-8 col-xl-9 movie-text-content narrower padding-0">
+            <div class="row padding-0">
+                <div class="col-10 col-md-6">
+                    <h4 class="article-title narrower"><a href="{{ url_for('movie', genre_id=movie.genre_id, movie_id=movie.id) }}">{{ movie.title.title() }}</a></h3>
+                </div>
+                <div class="col-2 col-md-2 text-muted padding-0">
+                    <small>({{ movie.release_year }})</small>
+                </div>
+                {% if current_user == movie.author %}
+                    <div class="col-auto ml-0 ml-md-auto mt-1 mt-lg-0">
+                        <a class="btn update narrower btn-sm btn-block btn-info" href="{{ url_for('update_movie', genre_id=movie.genre_id, movie_id=movie.id) }}">Update</a>
+                        <a class="btn delete narrower btn-sm btn-block btn-danger"  href="{{ url_for('delete_movie', genre_id=movie.genre_id, movie_id=movie.id) }}">Delete</a>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="row movie-details narrower mt-2 mt-lg-0 text-muted">
+                <div class="col-auto">
+                    <small class="narrower">Genre: <span><a class="text-info" href="{{ url_for('genre', genre_id=movie.genre.id) }}">{{ movie.genre.name }}</a></span></small>
+                </div>
+                <div class="col-auto">
+                    <small class="narrower">Rate: <span class="text-info">{{ movie.rate }}/10</span></small>
+                </div>
+                <div class="col-auto">
+                    <small class="narrower">Duration: <span class="text-info">{{ movie.duration_hrs }}hr:{{ movie.duration_mins }}min</span></small>
+                </div>
+                <div class="col-auto">
+                    <small class="narrower">Directed by: <span class="text-info">{{ movie.director.title() }}</span></small>
+                </div>
+            </div>
+            <hr>
+            <div class="row movie-storyline narrower">
+                <div class="col-12">
+                    <p class="narrower">{{ movie.storyline }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</article>

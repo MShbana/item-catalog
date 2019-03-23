@@ -6,7 +6,7 @@
         <div class="col-9 col-md-9 vertical-centered padding-0">
             <div class="row">
                 <div class="col-12">
-                    <h4><a class="user-name vertical-centered" href="{{ url_for('user_movies', username=movie.author.username, user_id=movie.user_id) }}">{{ movie.author.username }}</a></h4>
+                    <h3><a class="user-name vertical-centered" href="{{ url_for('user_movies', username=movie.author.username, user_id=movie.user_id) }}">{{ movie.author.username }}</a></h4>
                 </div>
                 <div class="col-12">
                     <small class="text-muted movie-date vertical-centered">{{ movie.date_posted.strftime("%Y-%m-%d %I:%M %p") }}</small>
@@ -19,10 +19,10 @@
         <div class="col-4 col-xl-3 text-center">
             <a href="{{ url_for('movie', genre_id=movie.genre_id, movie_id=movie.id) }}"><img class="article-img text-center center-block" src="{{ url_for('static', filename='imgs/movie_pics/' + movie.poster) }}" alt="Movie Poster Picture"></a>
         </div>
-        <div class="col-8 col-xl-9 movie-metadata padding-0">
+        <div class="col-8 col-xl-9 movie-text-content padding-0">
             <div class="row padding-0">
                 <div class="col-10 col-md-6">
-                    <h3 class="article-title"><a href="{{ url_for('movie', genre_id=movie.genre_id, movie_id=movie.id) }}">{{ movie.title.title() }}</a></h3>
+                    <h4 class="article-title"><a href="{{ url_for('movie', genre_id=movie.genre_id, movie_id=movie.id) }}">{{ movie.title.title() }}</a></h3>
                 </div>
                 <div class="col-2 col-md-2 text-muted padding-0">
                     <small>({{ movie.release_year }})</small>

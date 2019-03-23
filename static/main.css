@@ -80,10 +80,14 @@ body {
     border-radius: 5px;
 }
 
-.btn,
-#sidebar-wrapper > ul > li,
-#top-bar-wrapper .navbar-toggler > .navbar-toggler-icon {
-    font-size: 100%;
+.padding-0 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.vertical-centered {
+    align-items: center;
+    display: flex;
 }
 
 #main-content {
@@ -105,14 +109,11 @@ body {
     padding-bottom: 10px;
 }
 
-.padding-0 {
-    padding-left: 0;
-    padding-right: 0;
-}
-
-.vertical-centered {
-    align-items: center;
-    display: flex;
+.page-heading {
+    border-radius: 2px;
+    color: #FFFFFF;
+    padding: 15px 0;
+    text-align: center;
 }
 
 .article-metadata {
@@ -121,10 +122,15 @@ body {
 }
 
 .user-img {
-    height: 60px;
-    width: 60px;
-    margin: 0 auto;
     display: block;
+    max-height: 60px;
+    max-width: 60px;
+    margin: 0 auto;
+}
+
+.user-img.narrower {
+    max-height: 50px;
+    max-width: 50px;
 }
 
 .user-name:hover,
@@ -145,6 +151,11 @@ body {
     margin-left: 10px;
 }
 
+.article-img.narrower {
+    max-height: 240px;
+    max-width: 160px;
+}
+
 .content-section .row {
     width: 100%;
 }
@@ -161,19 +172,9 @@ body {
     color: #000000;
 }
 
-.article-content .movie-storyline {
+.article-content .movie-storyline,
+.latest-movies.author {
     color: #5C5C5C;
-}
-
-.page-heading {
-    border-radius: 2px;
-    color: #FFFFFF;
-    padding: 15px 0;
-    text-align: center;
-}
-
-small {
-    font-size: 75%;
 }
 
 .border-bottom {
@@ -187,7 +188,9 @@ small {
 }
 
 .user-name,
-.movie-date {
+.movie-date,
+.user-name.narrower,
+.movie-date.narrower {
     padding-left: 0;
 }
 
@@ -196,69 +199,76 @@ small {
     font-size: 90%;
 }
 
+.btn.update.narrower,
+.btn.delete.narrower {
+    font-size: 80%;
+}
+
 .latest-movies {
     font-size: 0.8em;
 }
 
-.latest-movies.author {
-    color: #5C5C5C;
-}
 
 /* #Responsiveness# */
 @media screen and (max-width: 320px) {
     body { padding-top: 50px; }
     h1 { font-size: 1.4em; }
     h2 { font-size: 1.075em; }
-    h3 { font-size: 0.85em; }
-    h4 { font-size: 0.7em; }
-    h5 { font-size: 0.65em; }
-    h6 { font-size: 0.63em; }
+    h3 { font-size: 0.7em; }
+    h4 { font-size: 0.85em; }
     p { font-size: 0.6em; }
-    small { font-size: 50%; }
-    .btn.update,
-    .btn.delete { font-size: 60%; }
+    small,
+    small.narrower { font-size: 50%; }
     #sidebar-toggler,
     #sidebar-wrapper > ul > li,
     #top-bar-wrapper .navbar-toggler > .navbar-toggler-icon { font-size: 80%; }
     #sidebar-wrapper { width: 100%; }
-    .user-img { height: 30px; width: 30px; }
+    .btn.update,
+    .btn.delete,
+    .btn.update.narrower,
+    .btn.btn.delete.narrower { font-size: 70%; }
+    .user-img,
+    .user-img.narrower { height: 30px; width: 30px; }
     .article-img { height:100px; width: 60px; }
-    .movie-metadata { padding-left: 15px; }
+    .movie-text-content { padding-left: 15px; }
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
     body { padding-top: 50px; }
     h1 { font-size: 1.7em; }
     h2 { font-size: 1.375em; }
-    h3 { font-size: 1.15em; }
-    h4 { font-size: 0.95em; }
-    h5 { font-size: 0.9em; }
-    h6 { font-size: 0.87em; }
+    h3 { font-size: 0.95em; }
+    h4 { font-size: 1.15em; }
     p { font-size: 0.8em; }
-    small { font-size: 60%; }
-    .btn.update,
-    .btn.delete { font-size: 80%; }
+    small,
+    small.narrower { font-size: 60%; }
     #sidebar-toggler,
     #sidebar-wrapper > ul > li,
     #top-bar-wrapper .navbar-toggler > .navbar-toggler-icon { font-size: 90%; }
     #sidebar-wrapper { width: 220px; }
-    .user-img { height: 40px; width: 40px; }
-    .article-img { height:140px; width: 75px;}
-    .movie-metadata { padding-left: 10px; }
+    .btn.update,
+    .btn.delete,
+    .btn.update.narrower,
+    .btn.btn.delete.narrower { font-size: 80%; }
+    .user-img,
+    .user-img.narrower { height: 40px; width: 40px; }
+    .article-img { height:140px; width: 75px; }
+    .movie-text-content { padding-left: 10px; }
 }
 
 @media screen and (min-width: 576px) and (max-width: 767px){
     h1 { font-size: 2em; }
     h2 { font-size: 1.575em; }
-    h3 { font-size: 1.2em; }
-    h4 { font-size: 1em; }
-    h5 { font-size: 0.8em; }
-    h6 { font-size: 0.75em; }
+    h3 { font-size: 1em; }
+    h4 { font-size: 1.2em; }
     p { font-size: 0.85em; }
-    small { font-size: 60%; }
-    .btn.update,
-    .btn.delete { font-size: 85%; }
+    small,
+    small.narrower { font-size: 60%; }
     #sidebar-wrapper { width: 300px; }
+    .btn.update,
+    .btn.delete,
+    .btn.update.narrower,
+    .btn.btn.delete.narrower { font-size: 85%; }
     .user-img { height: 50px; width: 50px; }
     .article-img {  height:200px; width: 130px; }
 }
@@ -266,29 +276,46 @@ small {
 @media screen and (min-width: 768px) and (max-width: 991px){ 
     h1 { font-size: 2.2em; }
     h2 { font-size: 1.675em; }
-    h3 { font-size: 1.35em; }
-    h4 { font-size: 1.15em; }
-    h5 { font-size: 1.1em; }
-    h6 { font-size: 0.92em; }
+    h3 { font-size: 1.15em; }
+    h3.narrower { font-size: 1em; }
+    h4 { font-size: 1.35em; }
+    h4.narrower { font-size: 1.2em; }
     p { font-size: 0.9em; }
+    p.narrower { font-size: 0.75em; }
     small { font-size: 65%; }
+    small.narrower  { font-size: 50%; }
     #sidebar-wrapper { width: 350px; }
     .user-name,
-    .user-img { height: 55px; width: 55px; }
     .movie-date { padding-left: 10px; }
-    .article-img { height: 240px; width: 170px; }
+    .user-name.narrower,
+    .movie-date.narrower { padding-left: 15px; }
+    .btn.update.narrower,
+    .btn.delete.narrower { font-size: 75%; }
+    .user-img { height: 55px; width: 55px; }
+    .user-img.narrower { height: 45px; width: 45px; }
+    .article-img { height: 250px; width: 170px; }
+    .article-img.narrower { height: 220px; width: 130px; }
+    .movie-text-content.narrower { padding-left: 14px; }
 }
 
 @media screen and (min-width: 992px) {
     h1 {  font-size: 2.4em; } 
     h2 { font-size: 1.775em; }
-    h3 { font-size: 1.45em; }
-    h4 { font-size: 1.25em; }
-    h5 { font-size: 1.15em; }
-    h6 { font-size: 1.05em; }
+    h3 { font-size: 1.2em; }
+    h3.narrower { font-size: 1em; }
+    h4 { font-size: 1.45em; }
+    h4.narrower { font-size: 1.2em; }
     p { font-size: 1em; }
+    p.narrower { font-size: 0.85em; }
+    small { font-size: 70%; }
+    small.narrower {  font-size: 65%; }
+    .user-name.narrower,
+    .movie-date.narrower { padding-left: 8px; }
     .latest-movies { font-size: 0.9em; }
     .user-img { height: 60px; width: 60px; }
+    .user-img.narrower { height: 50px; width: 50px; }
     .article-img { height: 270px; width: 200px; }
+    .article-img.narrower { height: 240px; width: 160px; }
+    .movie-text-content.narrower { padding-left: 14px; }
 }
 /* /#Responsiveness# */
