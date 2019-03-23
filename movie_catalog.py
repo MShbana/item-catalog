@@ -33,9 +33,10 @@ def home():
     return render_template('home.html', genres=genres, movies=movies)
 
 
-# JSON API endpoint for all genres (names and ID's).
 @app.route('/API/genres.json')
 def genres_JSON():
+    '''JSON API endpoint for all genres (names and ID's)'''
+
     genres = Genre.query.all()
     return jsonify(genres=[genre.serialize for genre in genres])
 
@@ -60,10 +61,13 @@ def genre(genre_id):
                            title=genre.name)
 
 
-# JSON API endpoint for each genre,
-# its name, id, movies and movies' details.
 @app.route('/API/genre/<int:genre_id>.json')
 def genre_JSON(genre_id):
+    '''
+    JSON API endpoint for each genre,
+    its name, id, movies and those movies' details.
+    '''
+
     genre = Genre.query.get(genre_id)
     movies = Movie.query.filter_by(genre_id=genre_id).all()
     return jsonify(genre=[genre.serialize],
@@ -78,16 +82,21 @@ def movie(genre_id, movie_id):
     return render_template('movie.html', movie=movie, title=movie.title)
 
 
-# JSON API endpoint for each movie and all its details.
 @app.route('/API/genre/<int:genre_id>/movie/<int:movie_id>.json')
 def movie_JSON(genre_id, movie_id):
+    '''
+    JSON API endpoint for each movie,
+    its id, title, director, release-year,
+    date_posted, duration, poster filename,
+    rate, genre, genre_id, author, author_id.'''
+
     movie = Movie.query.filter_by(genre_id=genre_id, id=movie_id).first()
     return jsonify(movie=[movie.serialize])
 
 
-# JSON API endpoint for all movies and their details.
 @app.route('/API/movies.json')
 def movies_JSON():
+    '''JSON API endpoint for all movies and their details.'''
     movies = Movie.query.all()
     return jsonify(movies=[movie.serialize for movie in movies])
 
@@ -214,26 +223,31 @@ def user_movies(username, user_id):
                            title=f'{user.username}')
 
 
-# JSON API endpoint for all users
 @app.route('/API/users.json')
 def users_JSON():
+    '''JSON API endpoint for all users.'''
+
     users = User.query.all()
     return jsonify(users=[user.serialize for user in users])
 
 
-# JSON API endpoint for each user,
-# its username, email, id and movies.
 @app.route('/API/user/<int:user_id>.json')
 def user_JSON(user_id):
+    '''
+    JSON API endpoint for each user,
+    their username, email, id and movies.
+    '''
+
     user = User.query.get(int(user_id))
     movies = user.movies
     return jsonify(user=[user.serialize],
                    user_movies=[movie.serialize for movie in movies])
 
 
-# Create anti-forgery state token
 @app.route('/login')
 def google_login():
+    '''Create anti-forgery state token'''
+
     if current_user.is_authenticated:
         return redirect(url_for('home'))
 
