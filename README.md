@@ -59,30 +59,38 @@ Second required project for the [Full Stack Web Developer Nanodegree][link_1].
 
 6. Configure a new app to implement Third Party Authentication and Authorization:
     - Use your Google Account to login to the [Google Developer's Console][link_12] and click on **CREATE**:
+
     ![Alt text][readme_img1]    
 
     - Choose the **Project name**:
+
     ![Alt text][readme_img2]
 
     - From the **Create Credentials** menu, choose **Oauth client ID**:
+
     ![Alt text][readme_img3]
 
     - Click on the **Configure consent screen** button on the right:
+
     ![Alt text][readme_img4]
 
     - Enter the **Application name** and save:
     ![Alt text][readme_img5]
 
     - Choose **Web application** as the **Application type**, and add the **URIs**: `http://localhost:5000` and `http://127.0.0.1:5000` to both the **Authorized JavaScript origins** and **Authorized redirect URIs** fields:
+
     ![Alt text][readme_img6]
 
     - A new window will pop up with your **Client ID**, and **Client Secret**:
+
     ![Alt text][readme_img7]
 
     - Choose the Movie Catlog app to get the JSON file that contains the **Client ID** and **Client Secret**:
+
     ![Alt text][readme_img8]
 
     - Click on **Download JSON**:
+
     ![Alt text][readme_img9]
 
     - Rename the downloaded **JSON** file as: **client_secret.json** and move it to the app's directory.
@@ -101,34 +109,44 @@ Second required project for the [Full Stack Web Developer Nanodegree][link_1].
 ## Screenshots of the Working Project
 
 1. **Home Page** [Logged in as *Dwight K.Schrute*]
+
     ![Alt text][site_img1]
 
 
 2. **Home Page Genres** [Logged in as *Dwight K.Schrute*]
+
     ![Alt text][site_img2]
 
 3. **Home Page &mdash; 2 different authenticated users**
+
     ![Alt text][site_img3]
 
 4. **Fantasy Genre Page** [Logged in as *Dwight K. Schrute*]
+
     ![Alt text][site_img4]
 
 5. **Authenticated User's Movie List** [Logged in as *Dwight k.Schrute*]
+
     ![Alt text][site_img5]
 
 6. **Not the authenticated User's Movie List** [Logged in as *Dwight Schrute*]
+
     ![Alt text][site_img6]
 
 7. **Home Page** [Logged out]
+
     ![Alt text][site_img7]
 
 8. **New Movie Form** [Logged in as *Dwight Schrute*]
+
     ![Alt text][site_img8]
 
 9. **New Movie Form Backend Validation** [Logged in as *Dwight Schrute*]
+
     ![Alt text][site_img9]
 
 10. **Update Movie Form** [Logged in as *Dwight Schrute*]
+
     ![Alt text][site_img10]
 
 ---
@@ -136,23 +154,29 @@ Second required project for the [Full Stack Web Developer Nanodegree][link_1].
 ## Screenshots of the JSON API endpoints' outputs:
 
 1. `curl http://localhost:5000/API/genres.json` returns all movie genres
+
     ![Alt text][genres_img]
 
 2. `curl http://localhost:5000/API/genre/<genre_id>.json` returns the genre's name and movies
+
     ![Alt text][genre_img]
 
 3. `curl http://localhost:5000/API/movies.json` reutrns
 all movies
+
     ![Alt text][movies_img]
 
 
 4. `curl http://localhost:5000/API/genre/<genre_id>/movie/<movie_id>.json` reutnrs movie details
+
     ![Alt text][movie_img]
 
 5. `curl http://localhost:5000/API/users.json` returns all users
+
     ![Alt text][users_img]
 
 6. `curl http://localhost:5000/API/user/<user_id>.json` returns user's information
+
     ![Alt text][user_img]
 
 
