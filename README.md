@@ -5,23 +5,23 @@ Second required project for the [Full Stack Web Developer Nanodegree][link_1].
 >In this project, you will be developing a web application that provides a list of items within a variety of categories and integrate third party user registration and authentication. Authenticated users should have the ability to post, edit, and delete their own items.
 >You will be creating this project essentially from scratch, no templates have been provided for you. This means that you have free reign over the HTML, the CSS, and the files that include the application itself utilizing Flask.
 
-1. I have chosen Movies to be the site's items, and Genres to be the site's categories.
-2. Third Party Authentication and Authorization (**OAuth2.0**): Gmail Sign in ([httplib2][link_2], [requests][link_3]) + [Flask-Login][link_4].
-3. Front-End: HTML, CSS, [Boostrap][link_5], JS(Jquery).
-4. ORM for the database: [SQLAlchemy][link_6], [Flask-SQLAlchemy][link_7].
-5. Templating engine: [Python's Jinja2][link_8].
-6. Back-end Form Validation: [WTForms][link_9] and [Flask-WTF][link_10] Validators.
-7. Storing movie posters: [Pillow][link_11].
+1. I have chosen **Movies** to be the site's **Items**, and **Genres** to be the site's **Categories**.
+2. **Third Party Authentication and Authorization (OAuth2.0):** Gmail Sign in ([httplib2][link_2], [requests][link_3]) + [Flask-Login][link_4].
+3. **Front-End:** HTML, CSS, [Boostrap][link_5], JS(Jquery).
+4. **ORM for the database:** [SQLAlchemy][link_6], [Flask-SQLAlchemy][link_7].
+5. **Templating engine:** [Python's Jinja2][link_8].
+6. **Back-end Form Validation:** [WTForms][link_9] and [Flask-WTF][link_10] Validators.
+7. **Storing movie posters:** [Pillow][link_11].
 
 ---
 
 ## Prerequisites and Requirements
-1. Front end:
+1. **Front end:**
     - HTML
     - CSS
     - Bootstrap
     - JQuery
-2. Back end (Python3.6.x):
+2. **Back end (Python3.6.x):**
     - Flask
     - SQLAlchemy
     - Flask-SQLAlchemy
@@ -57,7 +57,8 @@ Second required project for the [Full Stack Web Developer Nanodegree][link_1].
 4. `export SQLALCHEMY_DATABASE_URI='sqlite:///site.db'`, which is the database that will be genrated by the `models.py` script, either in the *terminal* or the *.bashrc* file &mdash; same as **3**.
 5. `export FLASK_APP=movie_catalog.py`, either in the *terminal* or the *.bashrc* file &mdash; same as **3**.
 
-6. Configure a new app to implement Third Party Authentication and Authorization (**OAuth2.0**):
+6. **Third Party Authentication and Authorization using OAuth2.0** (Obtaining client_id and client_secret):
+
     - Use your Google Account to login to the [Google Developer's Console][link_12] and click on **CREATE**:
 
     ![Alt text][readme_img1]    
@@ -66,7 +67,7 @@ Second required project for the [Full Stack Web Developer Nanodegree][link_1].
 
     ![Alt text][readme_img2]
 
-    - From the **Create Credentials** menu, choose **Oauth client ID**:
+    - From the **Create Credentials** menu, choose **OAuth client ID**:
 
     ![Alt text][readme_img3]
 
