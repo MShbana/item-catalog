@@ -97,6 +97,8 @@ Second required project for the [Full Stack Web Developer Nanodegree][link_1].
 
     - Rename the downloaded **JSON** file as: **client_secret.json** and move it to the app's directory.
 
+    - Replace the **client_id** in the **templates/login.html** file with the **client_id** that you have obtained above.
+
 7. Run `python add_genres.py` in the *terminal*; to add the available movies' genres.
 
 8. You can add some test movies by running `python add_movies.py` in the *terminal*. However, to do so, you will need to log in with at least 3 different **Gmail accounts** whose to-be-stored **id**'s will be used in the **add_movies.py** script. This will make sure that each of the three **authenticated users** has some movies, which no one else can update/delete.
