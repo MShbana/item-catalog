@@ -10,7 +10,7 @@ Second required project for the [Full Stack Web Developer Nanodegree][link_1].
 3. **Front-End:** HTML, CSS, [Boostrap][link_5], JS(Jquery).
 4. **ORM for the database:** [SQLAlchemy][link_6], [Flask-SQLAlchemy][link_7].
 5. **Templating engine:** [Python's Jinja2][link_8].
-6. **Back-end Form Validation:** [WTForms][link_9] and [Flask-WTF][link_10] Validators.
+6. **Server-side Form Validation:** [WTForms][link_9] and [Flask-WTF][link_10] Validators.
 7. **Storing movie posters:** [Pillow][link_11].
 
 ---
@@ -20,7 +20,7 @@ Second required project for the [Full Stack Web Developer Nanodegree][link_1].
     - HTML
     - CSS
     - Bootstrap
-    - JQuery
+    - JS(JQuery)
 2. **Back end (Python3.6.x):**
     - Flask
     - SQLAlchemy
