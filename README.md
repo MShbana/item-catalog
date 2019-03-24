@@ -75,6 +75,7 @@ Second required project for the [Full Stack Web Developer Nanodegree][link_1].
     ![Alt text][readme_img4]
 
     - Enter the **Application name** and save:
+    
     ![Alt text][readme_img5]
 
     - Choose **Web application** as the **Application type**, and add the **URIs**: `http://localhost:5000` and `http://127.0.0.1:5000` to both the **Authorized JavaScript origins** and **Authorized redirect URIs** fields:
