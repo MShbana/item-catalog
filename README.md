@@ -6,7 +6,7 @@ Second required project for the [Full Stack Web Developer Nanodegree][link_1].
 >You will be creating this project essentially from scratch, no templates have been provided for you. This means that you have free reign over the HTML, the CSS, and the files that include the application itself utilizing Flask.
 
 1. I have chosen Movies to be the site's items, and Genres to be the site's categories.
-2. Third Party Authentication and Authorization: Gmail Sign in ([httplib2][link_2], [requests][link_3]) + [Flask-Login][link_4].
+2. Third Party Authentication and Authorization (**OAuth2.0**): Gmail Sign in ([httplib2][link_2], [requests][link_3]) + [Flask-Login][link_4].
 3. Front-End: HTML, CSS, [Boostrap][link_5], JS(Jquery).
 4. ORM for the database: [SQLAlchemy][link_6], [Flask-SQLAlchemy][link_7].
 5. Templating engine: [Python's Jinja2][link_8].
@@ -57,7 +57,7 @@ Second required project for the [Full Stack Web Developer Nanodegree][link_1].
 4. `export SQLALCHEMY_DATABASE_URI='sqlite:///site.db'`, which is the database that will be genrated by the `models.py` script, either in the *terminal* or the *.bashrc* file &mdash; same as **3**.
 5. `export FLASK_APP=movie_catalog.py`, either in the *terminal* or the *.bashrc* file &mdash; same as **3**.
 
-6. Configure a new app to implement Third Party Authentication and Authorization:
+6. Configure a new app to implement Third Party Authentication and Authorization (**OAuth2.0**):
     - Use your Google Account to login to the [Google Developer's Console][link_12] and click on **CREATE**:
 
     ![Alt text][readme_img1]    
@@ -75,7 +75,7 @@ Second required project for the [Full Stack Web Developer Nanodegree][link_1].
     ![Alt text][readme_img4]
 
     - Enter the **Application name** and save:
-    
+
     ![Alt text][readme_img5]
 
     - Choose **Web application** as the **Application type**, and add the **URIs**: `http://localhost:5000` and `http://127.0.0.1:5000` to both the **Authorized JavaScript origins** and **Authorized redirect URIs** fields:
