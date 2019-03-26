@@ -37,8 +37,8 @@ Second required project for the [Full Stack Web Developer Nanodegree][link_1].
 ---
 
 ## Configuration and Installation
-1. **Clone** or **download** the project.
-2. To create a new **Python's virtual environment** with all the required project dependencies, run the following commands in the terminal (With the cloned directory as the **cwd**):
+1. `git clone https://github.com/MShbana/item-catalog.git movie-catalog` **Clone** or **download** the project in a new directory named `movie-catalog`.
+2. To create a new **Python's virtual environment** with all the required project dependencies, run the following commands in the terminal (With the cloned directory `movie-catalog` as the **Current Working Directory**):
     - `virtualenv -p /usr/bin/python3 movie_catalog_env` to create a new *Python3* virtual environment.
     - `source movie_catalog_env/bin/activate` to activate the virtual environment.
     - `pip install -r requirements.txt` to install the required libararies.
@@ -97,7 +97,7 @@ Second required project for the [Full Stack Web Developer Nanodegree][link_1].
 
     - Rename the downloaded **JSON** file as: **client_secret.json** and move it to the app's directory.
 
-    - Replace the **client_id** in the **templates/login.html** file with the **client_id** that you have obtained above.
+    - Insert the **client_id** that you have obtained above into the **templates/login.html** file in the `<insert client_id here >` place.
 
 7. Run `python add_genres.py` in the *terminal*; to add the available movies' genres.
 
