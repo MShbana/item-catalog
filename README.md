@@ -49,10 +49,10 @@ Second required project for the [Full Stack Web Developer Nanodegree][link_1].
     - `os.urandom(24)` will result in a random 24-character string.
     - Run `export SECRET_KEY='<Insert the string that os.urandom(24) has generated here>'` inside one of the following:
         - The *terminal*.
-        > Will only work for the terminal session in which it was exported, i.e., you will need to export it each time you run the project in a new terminal.
+            > Will only work for the terminal session in which it was exported, i.e., you will need to export it each time you run the project in a new terminal.
 
         - The *.bashrc* file in the home directory.
-        > Will work in any terminal session.
+            > Will work in any terminal session.
 
 4. `export SQLALCHEMY_DATABASE_URI='sqlite:///site.db'`, which is the database that will be genrated by the `models.py` script, either in the *terminal* or the *.bashrc* file &mdash; same as **3**.
 5. `export FLASK_APP=movie_catalog.py`, either in the *terminal* or the *.bashrc* file &mdash; same as **3**.
