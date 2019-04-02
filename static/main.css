@@ -177,6 +177,10 @@ body {
     color: #5C5C5C;
 }
 
+.article-content .movie-storyline {
+    word-wrap: break-word;
+}
+
 .border-bottom {
     color: #2C0FD2;
 }
