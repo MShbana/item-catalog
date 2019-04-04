@@ -7,7 +7,7 @@
             {% endfor %}
         </div>
     {% else %}
-        {{ field(class='form-control') }}
+        {{ field(class='form-control form-control-sm') }}
     {% endif %}
 {% endmacro %}
 {% macro render_file_field(field) %}
@@ -20,6 +20,6 @@
             {% endfor %}
         </div>
     {% else %}
-        {{ field(class='form-control-file') }}
+        {{ field(class='form-control-file form-control-file-sm') }}
     {% endif %}
 {% endmacro %}
