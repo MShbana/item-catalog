@@ -244,7 +244,7 @@ body {
 
 }
 
-@media screen and (min-width: 320px) and (max-width: 379px) {
+@media screen and (min-width: 321px) and (max-width: 379px) {
     h1 { font-size: 1.5em; }
     h2 { font-size: 1.375em; }
     h3 { font-size: 0.95em; }
