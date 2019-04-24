@@ -15,7 +15,7 @@ Second required project for the [Full Stack Web Developer Nanodegree][link_1].
 
 ---
 
-## Live Version:
+## Live Version
 www.mymovies.cf
 
 ---
