@@ -3,7 +3,7 @@ __pycache__/
 site.db
 static/imgs/movie_pics/*
 !static/imgs/movie_pics/movie_poster_default.jpg
-client_secret.json
+# client_secret.json
 package-lock.json
 movie_catalog_env/
 .vscode/
