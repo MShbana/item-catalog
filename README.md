@@ -106,7 +106,7 @@ www.mymovies.cf
 
 7. Run `python add_genres.py` in the *terminal*; to add the available movies' genres.
 
-8. You can add some test movies by running `python add_movies.py` in the *terminal*. However, to do so, you will need to log in with at least 3 different **Gmail accounts** whose to-be-stored **id**'s will be used in the **add_movies.py** script. This will make sure that each of the three **authenticated users** has some movies, which no one else can update/delete.
+8. You can add some test movies by running `python add_movies.py` in the *terminal*. **However, to do so, you will need to log in with at least 3 different Gmail accounts whose to-be-stored id's will be used in the add_movies.py script**. This will make sure that each of the three **authenticated users** has some movies, which no one else can update/delete.
 
 9. `flask run` to run the app on the default port **5000**, or `flask run -p <port_number>` to run the app on a different port.
     > Remember to update **Authorized JavaScript origins** and **Authorized redirect URIs** fields in the Google Sign in App Configuration, if you choose to use any port number other than 5000.
