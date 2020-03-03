@@ -57,7 +57,7 @@ class Movie(db.Model):
     duration_hrs = db.Column(db.Integer, nullable=False)
     duration_mins = db.Column(db.Integer, nullable=False)
     rate = db.Column(db.Integer, nullable=False)
-    storyline = db.Column(db.Text, nullable=False)
+    storyline = db.Column(db.String(1000), nullable=False)
     poster = db.Column(db.String(1000), nullable=False,
                        default='movie_poster_default.jpg')
     genre_id = db.Column(db.Integer, db.ForeignKey('genre.id'), nullable=False)
