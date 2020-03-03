@@ -405,3 +405,7 @@ def gdisconnect():
             json.dumps('Failed to revoke token for given user.'), 400)
         response.headers['Content-Type'] = 'application/json'
         return redirect(url_for('home'))
+
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')
