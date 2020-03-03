@@ -13,7 +13,7 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(50), unique=True, nullable=False)
-    profile_pic = db.Column(db.String(30), nullable=False,
+    profile_pic = db.Column(db.String(1000), nullable=False,
                             default='op_profile_default.png')
     movies = db.relationship('Movie', backref='author', lazy=True)
 
