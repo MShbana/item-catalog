@@ -16,7 +16,7 @@ Second required project for the [Full Stack Web Developer Nanodegree][link_1].
 ---
 
 ## Live Version
-www.mymovies.cf
+https://movie-catalogapp.herokuapp.com
 
 ---
 
