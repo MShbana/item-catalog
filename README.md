@@ -1,6 +1,13 @@
 # Item Catalog
 Second required project for the [Full Stack Web Developer Nanodegree][link_1].
 
+---
+
+## Live Version
+https://movie-catalogapp.herokuapp.com
+
+---
+
 ## Project Overview
 >In this project, you will be developing a web application that provides a list of items within a variety of categories and integrate third party user registration and authentication. Authenticated users should have the ability to post, edit, and delete their own items.
 >You will be creating this project essentially from scratch, no templates have been provided for you. This means that you have free reign over the HTML, the CSS, and the files that include the application itself utilizing Flask.
@@ -12,11 +19,6 @@ Second required project for the [Full Stack Web Developer Nanodegree][link_1].
 5. **Templating engine:** [Python's Jinja2][link_8].
 6. **Server-side Form Validation:** [WTForms][link_9] and [Flask-WTF][link_10] Validators.
 7. **Storing movie posters:** [Pillow][link_11].
-
----
-
-## Live Version
-https://movie-catalogapp.herokuapp.com
 
 ---
 
