@@ -15,6 +15,13 @@ login_manager.login_message = 'You do not have permission to access that page. P
 login_manager.login_message_category = 'danger'
 login_manager.login_view = 'home'
 
+from flask import Flask
+from flask_s3 import FlaskS3
+app = Flask(__name__)
+app.config['FLASKS3_BUCKET_NAME'] = 'movie-catalogapp-bucket2'
+s3 = FlaskS3(app)
+s3.init_app(app)
+
 
 @app.before_first_request
 def create_tables():
