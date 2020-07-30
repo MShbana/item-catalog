@@ -9,7 +9,7 @@ https://movie-catalogapp.herokuapp.com
 ---
 
 ## TODO
-Fix the images' saving in S3 problem.
+Fix the storing of the movies' posters in the AWS S3 Bucket issue.
 
 ---
 ## Project Overview
