@@ -3,11 +3,6 @@ Second required project for the [Full Stack Web Developer Nanodegree][link_1].
 
 ---
 
-## Live Version
-https://movie-catalogapp.herokuapp.com
-
----
-
 ## TODO
 Fix the storing of the movies' posters in the AWS S3 Bucket issue.
 
@@ -44,80 +39,6 @@ Fix the storing of the movies' posters in the AWS S3 Bucket issue.
     - httplib2
     - urllib3
     - requests
-
----
-
-## Configuration and Installation
-1. `git clone https://github.com/MShbana/item-catalog.git movie-catalog` to **clone** the project in a new directory, named `movie-catalog`.
-2. To create a new **Python's virtual environment** with all the required project dependencies, run the following commands in the terminal (With the cloned directory `movie-catalog` as the **Current Working Directory**):
-    - `virtualenv -p /usr/bin/python3 movie_catalog_env` to create a new *Python3* virtual environment.
-    - `source movie_catalog_env/bin/activate` to activate the virtual environment.
-    - `pip install -r requirements.txt` to install the required libararies.
-
-3. Create the app's **SECRET_KEY**:
-    - Open the *Python* interpreter.
-    - `import os`.
-    - `os.urandom(24)` will result in a random 24-character string.
-    - Run `export SECRET_KEY='<Insert the string that os.urandom(24) has generated here>'` inside one of the following:
-        - The *terminal*.
-            > Will only work for the terminal session in which it was exported, i.e., you will need to export it each time you run the project in a new terminal.
-
-        - The *.bashrc* file in the home directory.
-            > Will work in any terminal session.
-
-4. `export SQLALCHEMY_DATABASE_URI='sqlite:///site.db'`, which is the database that will be genrated by the `models.py` script, either in the *terminal* or the *.bashrc* file &mdash; same as **3**.
-5. `export FLASK_APP=movie_catalog.py`, either in the *terminal* or the *.bashrc* file &mdash; same as **3**.
-
-6. **Third Party Authentication and Authorization using OAuth2.0** (Obtaining client_id and client_secret):
-
-    - Use your Google Account to login to the [Google Developer's Console][link_12] and click on **CREATE**:
-
-    ![Alt text][readme_img1]    
-
-    - Choose the **Project name**:
-
-    ![Alt text][readme_img2]
-
-    - From the **Create Credentials** menu, choose **OAuth client ID**:
-
-    ![Alt text][readme_img3]
-
-    - Click on the **Configure consent screen** button on the right:
-
-    ![Alt text][readme_img4]
-
-    - Enter the **Application name** and save:
-
-    ![Alt text][readme_img5]
-
-    - Choose **Web application** as the **Application type**, and add the **URIs**: `http://localhost:5000` and `http://127.0.0.1:5000` to both the **Authorized JavaScript origins** and **Authorized redirect URIs** fields:
-
-    ![Alt text][readme_img6]
-
-    - A new window will pop up with your **Client ID**, and **Client Secret**:
-
-    ![Alt text][readme_img7]
-
-    - Choose the Movie Catlog app to get the JSON file that contains the **Client ID** and **Client Secret**:
-
-    ![Alt text][readme_img8]
-
-    - Click on **Download JSON**:
-
-    ![Alt text][readme_img9]
-
-    - Rename the downloaded **JSON** file as: **client_secret.json** and move it to the app's directory.
-
-    - Insert the **client_id** that you have obtained above into the **templates/login.html** file.
-
-7. Run `python add_genres.py` in the *terminal*; to add the available movies' genres.
-
-8. You can add some test movies by running `python add_movies.py` in the *terminal*. **However, to do so, you will need to log in with at least 3 different Gmail accounts whose to-be-stored id's will be used in the add_movies.py script**. This will make sure that each of the three **authenticated users** has some movies, which no one else can update/delete.
-
-9. `flask run` to run the app on the default port **5000**, or `flask run -p <port_number>` to run the app on a different port.
-    > Remember to update **Authorized JavaScript origins** and **Authorized redirect URIs** fields in the Google Sign in App Configuration, if you choose to use any port number other than 5000.
-
-10. In the browser, open the app by opening the URI `http://localhost:<port_number>` or `http://127.0.0.1:<port_number>`
 
 ---
 
@@ -194,6 +115,80 @@ all movies
 
     ![Alt text][user_img]
 
+---
+
+## Configuration and Installation
+
+1. `git clone https://github.com/MShbana/item-catalog.git movie-catalog` to **clone** the project in a new directory, named `movie-catalog`.
+2. To create a new **Python's virtual environment** with all the required project dependencies, run the following commands in the terminal (With the cloned directory `movie-catalog` as the **Current Working Directory**):
+    - `virtualenv -p /usr/bin/python3 movie_catalog_env` to create a new *Python3* virtual environment.
+    - `source movie_catalog_env/bin/activate` to activate the virtual environment.
+    - `pip install -r requirements.txt` to install the required libararies.
+
+3. Create the app's **SECRET_KEY**:
+    - Open the *Python* interpreter.
+    - `import os`.
+    - `os.urandom(24)` will result in a random 24-character string.
+    - Run `export SECRET_KEY='<Insert the string that os.urandom(24) has generated here>'` inside one of the following:
+        - The *terminal*.
+            > Will only work for the terminal session in which it was exported, i.e., you will need to export it each time you run the project in a new terminal.
+
+        - The *.bashrc* file in the home directory.
+            > Will work in any terminal session.
+
+4. `export SQLALCHEMY_DATABASE_URI='sqlite:///site.db'`, which is the database that will be genrated by the `models.py` script, either in the *terminal* or the *.bashrc* file &mdash; same as **3**.
+5. `export FLASK_APP=movie_catalog.py`, either in the *terminal* or the *.bashrc* file &mdash; same as **3**.
+
+6. **Third Party Authentication and Authorization using OAuth2.0** (Obtaining client_id and client_secret):
+
+    - Use your Google Account to login to the [Google Developer's Console][link_12] and click on **CREATE**:
+
+    ![Alt text][readme_img1]    
+
+    - Choose the **Project name**:
+
+    ![Alt text][readme_img2]
+
+    - From the **Create Credentials** menu, choose **OAuth client ID**:
+
+    ![Alt text][readme_img3]
+
+    - Click on the **Configure consent screen** button on the right:
+
+    ![Alt text][readme_img4]
+
+    - Enter the **Application name** and save:
+
+    ![Alt text][readme_img5]
+
+    - Choose **Web application** as the **Application type**, and add the **URIs**: `http://localhost:5000` and `http://127.0.0.1:5000` to both the **Authorized JavaScript origins** and **Authorized redirect URIs** fields:
+
+    ![Alt text][readme_img6]
+
+    - A new window will pop up with your **Client ID**, and **Client Secret**:
+
+    ![Alt text][readme_img7]
+
+    - Choose the Movie Catlog app to get the JSON file that contains the **Client ID** and **Client Secret**:
+
+    ![Alt text][readme_img8]
+
+    - Click on **Download JSON**:
+
+    ![Alt text][readme_img9]
+
+    - Rename the downloaded **JSON** file as: **client_secret.json** and move it to the app's directory.
+
+    - Insert the **client_id** that you have obtained above into the **templates/login.html** file.
+
+7. Run `python add_genres.py` in the *terminal*; to add the available movies' genres.
+
+8. You can add some test movies by running `python add_movies.py` in the *terminal*. **However, to do so, you will need to log in with at least 3 different Gmail accounts whose to-be-stored id's will be used in the add_movies.py script**. This will make sure that each of the three **authenticated users** has some movies, which no one else can update/delete.
+
+9. `flask run` to run the app on the default port **5000**, or `flask run -p <port_number>` to run the app on a different port.
+    > Remember to update **Authorized JavaScript origins** and **Authorized redirect URIs** fields in the Google Sign in App Configuration, if you choose to use any port number other than 5000.
+
+10. In the browser, open the app by opening the URI `http://localhost:<port_number>` or `http://127.0.0.1:<port_number>`
 
 
 
