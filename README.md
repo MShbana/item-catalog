@@ -1,5 +1,4 @@
 # Item Catalog
-Second required project for the [Full Stack Web Developer Nanodegree][link_1].
 
 ---
 
